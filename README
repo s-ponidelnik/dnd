@@ -1,0 +1,11 @@
+
+## Logger
+
+ELK development guide: https://elk-docker.readthedocs.io/
+Filebeat: https://www.elastic.co/products/beats/filebeat
+
+Elasticsearch entries:
+http://dnd.localhost:9200/_search?pretty
+
+Kibana's web interface:
+http://dnd.localhost:5601

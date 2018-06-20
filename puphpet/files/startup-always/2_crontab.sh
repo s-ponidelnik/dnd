@@ -1,0 +1,1 @@
+#crontab -u vagrant /var/www/spyoutdoorapi.dev/etc/cron/crontab

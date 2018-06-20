@@ -1,0 +1,20 @@
+output:
+    logstash:
+        enabled: true
+        hosts:
+            - elk:5044
+        ssl:
+            certificate_authorities:
+                - /etc/pki/tls/certs/logstash-beats.crt
+        timeout: 15
+
+filebeat:
+    prospectors:
+        -
+            paths:
+                - "/var/log/storage/nginx/*.log"
+            document_type: nginx
+        -
+            paths:
+                - "/var/log/storage/php/*.log"
+            document_type: php

@@ -1,0 +1,67 @@
+version: '2'
+services:
+    application:
+        container_name: cc_application
+        build: docker/application/
+        #restart: always
+        volumes:
+            - .:/var/www/dnd.localhost
+        tty: true
+
+    nginx:
+        container_name: cc_nginx
+        image: nginx
+        #restart: always
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            - .:/var/www/dnd.localhost
+            - /var/www/dnd.localhost/etc/nginx:/etc/nginx
+            - /var/www/dnd.localhost/etc/nginx/sites-available/dnd.localhost.conf:/etc/nginx/sites-enabled/dnd.localhost.conf
+            - /var/log/nginx:/var/log/nginx
+            - /var/nginx/proxy_temp:/var/nginx/proxy_temp
+            - /var/nginx/client_body_temp:/var/nginx/client_body_temp
+        links:
+            - php
+
+    php:
+        container_name: cc_php
+        build: docker/php-fpm/
+        #restart: always
+        ports:
+            - "9000:9000"
+        volumes:
+            - .:/var/www/dnd.localhost
+            - /var/www/dnd.localhost/etc/php/:/usr/local/etc/
+            - /var/log/php-fpm:/var/log/php-fpm
+            - /var/log/php:/var/log/php
+            - /home/vagrant/.phpstorm_helpers/:/home/vagrant/.phpstorm_helpers/
+        env_file:
+            - /var/www/dnd.localhost/.env
+
+    elk:
+        container_name: cc_elk
+        image: sebp/elk
+        #restart: always
+        ports:
+            # Kibana
+            - "5601:5601"
+            # Elasticsearch
+            - "9200:9200"
+            # Logstash
+            - "5044:5044"
+        volumes:
+            #- .:/var/www/dnd.localhost
+            - /var/lib/elasticsearch:/var/lib/elasticsearch
+
+    filebeat:
+        container_name: cc_filebeat
+        build: docker/filebeat/
+        #image: docker.elastic.co/beats/filebeat:6.2.4
+        #restart: always
+        volumes:
+            - /var/log/nginx:/var/log/storage/nginx
+            - /var/www/dnd.localhost/var/log:/var/log/storage/php
+        links:
+            - elk

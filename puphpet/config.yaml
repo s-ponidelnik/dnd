@@ -1,0 +1,56 @@
+vagrantfile:
+    target: local
+    vm:
+        box: debian/stretch64
+        box_url: debian/stretch64
+        hostname: dnd.localhost
+        memory: '2048'
+        cpus: '1'
+        chosen_provider: virtualbox
+        box_version: ''
+        network:
+            private_network: 192.168.56.102
+            forwarded_port: {  }
+        post_up_message: ''
+        provider:
+            virtualbox:
+                modifyvm:
+                    natdnshostresolver1: false
+                showgui: '0'
+            vmware:
+                numvcpus: 1
+            parallels:
+                use_linked_clone: '0'
+                check_guest_tools: '0'
+                update_guest_tools: '0'
+        synced_folder:
+            vflsf_fwdmqfxfw9n2:
+                source: .
+                target: /vagrant
+                sync_type: nfs
+            vflsf_fwdmqfxfw9n3:
+                source: ./
+                target: /var/www/dnd.localhost
+                sync_type: nfs
+        usable_port_range:
+            start: 10200
+            stop: 10500
+    ssh:
+        host: null
+        port: null
+        private_key_path: null
+        username: vagrant
+        guest_port: null
+        keep_alive: true
+        forward_agent: false
+        forward_x11: false
+        shell: 'bash -l'
+        insert_key: false
+    vagrant:
+        host: detect
+    proxy:
+        http: ''
+        https: ''
+        ftp: ''
+        no_proxy: ''
+        enabled: ''

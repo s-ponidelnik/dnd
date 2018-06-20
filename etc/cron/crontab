@@ -1,0 +1,1 @@
+#25 * * * * docker exec php /var/www/dnd.localhost/bin/console dummy:command >/dev/null 2>&1
