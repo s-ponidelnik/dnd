@@ -40,10 +40,6 @@ class Race
      */
     protected $abilityScoreBonuses;
     /**
-     * @var AbilityScoreBonusCollection
-     */
-    private $allAbilityScoreBonuses;
-    /**
      * @var ColorCollection
      */
     protected $eyeColors;
@@ -59,25 +55,23 @@ class Race
      * @var ColorCollection
      */
     protected $hairColors;
-
     /**
      * @var AligmentCollection
      */
     protected $aligments;
-
-    public function setAligments(AligmentCollection $aligmentCollection): void
-    {
-        $this->aligments = $aligmentCollection;
-    }
+    /**
+     * @var AbilityScoreBonusCollection
+     */
+    private $allAbilityScoreBonuses;
 
     public function getAligments(): AligmentCollection
     {
         return $this->aligments;
     }
 
-    public function setMaxAge(int $age): void
+    public function setAligments(AligmentCollection $aligmentCollection): void
     {
-        $this->maxAge = $age;
+        $this->aligments = $aligmentCollection;
     }
 
     public function getMaxAge(): ?int
@@ -85,9 +79,9 @@ class Race
         return $this->maxAge;
     }
 
-    public function setAdultAge(int $age): void
+    public function setMaxAge(int $age): void
     {
-        $this->adultAge = $age;
+        $this->maxAge = $age;
     }
 
     public function getAdultAge(): ?int
@@ -95,9 +89,9 @@ class Race
         return $this->adultAge;
     }
 
-    public function setHairColors(ColorCollection $colorCollection): void
+    public function setAdultAge(int $age): void
     {
-        $this->hairColors = $colorCollection;
+        $this->adultAge = $age;
     }
 
     public function setEyeColors(ColorCollection $colorCollection): void
@@ -108,6 +102,11 @@ class Race
     public function getHairColors(): ?ColorCollection
     {
         return $this->hairColors;
+    }
+
+    public function setHairColors(ColorCollection $colorCollection): void
+    {
+        $this->hairColors = $colorCollection;
     }
 
     public function getEyeColor(): ?ColorCollection

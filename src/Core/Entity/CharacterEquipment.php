@@ -65,14 +65,14 @@ class CharacterEquipment extends CharacterRel
      */
     protected $bag = null;
 
-    public function setBag(BagInterface $item): void
-    {
-        $this->bag = $item;
-    }
-
     public function getBag(): ?BagInterface
     {
         return $this->bag;
+    }
+
+    public function setBag(BagInterface $item): void
+    {
+        $this->bag = $item;
     }
 
     /**

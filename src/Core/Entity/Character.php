@@ -127,19 +127,14 @@ class Character
         $this->temporaryHp;
     }
 
-    public function setEyeColor(Color $color): void
-    {
-        $this->eyeColor = $color;
-    }
-
     public function getEyeColor(): Color
     {
         return $this->eyeColor;
     }
 
-    public function setHairColor(Color $color): void
+    public function setEyeColor(Color $color): void
     {
-        $this->hairColor = $color;
+        $this->eyeColor = $color;
     }
 
     public function getHairColor(): Color
@@ -147,9 +142,9 @@ class Character
         return $this->hairColor;
     }
 
-    public function setHeight(float $height): void
+    public function setHairColor(Color $color): void
     {
-        $this->height = $height;
+        $this->hairColor = $color;
     }
 
     public function getHeight(): float
@@ -157,14 +152,19 @@ class Character
         return $this->height;
     }
 
-    public function setWeight(float $weight): void
+    public function setHeight(float $height): void
     {
-        $this->weight = $weight;
+        $this->height = $height;
     }
 
     public function getWeight(): float
     {
         return $this->weight;
+    }
+
+    public function setWeight(float $weight): void
+    {
+        $this->weight = $weight;
     }
 
     public function getItems(): ?CharacterItemCollection

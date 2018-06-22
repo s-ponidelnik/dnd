@@ -3,13 +3,13 @@
  * Created by PhpStorm.
  * User: Sergey Ponidelnik
  * Date: 22/06/2018
- * Time: 17:33
+ * Time: 17:47
  */
 
-namespace App\Core\Entity;
+namespace App\Entity;
 
 
-class RaceFilter extends FilterInCollection
+interface CollectionInterface
 {
 
 }

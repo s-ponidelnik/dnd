@@ -25,13 +25,13 @@ class Shield extends Armor implements LeftHandItemInterface
      */
     protected $acBonus;
 
-    public function setAcBonus(int $acBonus): void
-    {
-        $this->acBonus = $acBonus;
-    }
-
     public function getAcBonus(): int
     {
         return (int)$this->acBonus;
+    }
+
+    public function setAcBonus(int $acBonus): void
+    {
+        $this->acBonus = $acBonus;
     }
 }

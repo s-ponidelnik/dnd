@@ -18,13 +18,13 @@ class BodyArmor extends Armor implements BodyArmorInterface
      */
     protected $disadvantage;
 
-    public function setDisadvantage(bool $disadvantage): void
-    {
-        $this->disadvantage = $disadvantage;
-    }
-
     public function getDisadvantage(): bool
     {
         return (bool)$this->disadvantage;
+    }
+
+    public function setDisadvantage(bool $disadvantage): void
+    {
+        $this->disadvantage = $disadvantage;
     }
 }

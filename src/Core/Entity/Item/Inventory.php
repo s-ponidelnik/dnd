@@ -37,19 +37,14 @@ class Inventory extends Item implements InventoryInterface
      */
     protected $abilityFilter;
 
-    public function setAbilityFilter(AbilityFilter $abilityFilter): void
-    {
-        $this->aligmentFilter = $abilityFilter;
-    }
-
     public function getAbilityFilter(): ?AbilityFilter
     {
         return $this->abilityFilter;
     }
 
-    public function setAligmentFilter(AligmentFilter $aligmentFilter): void
+    public function setAbilityFilter(AbilityFilter $abilityFilter): void
     {
-        $this->aligmentFilter = $aligmentFilter;
+        $this->aligmentFilter = $abilityFilter;
     }
 
     public function getAligmentFilter(): ?AligmentFilter
@@ -57,9 +52,9 @@ class Inventory extends Item implements InventoryInterface
         return $this->aligmentFilter;
     }
 
-    public function setRaceFilter(RaceFilter $raceFilter): void
+    public function setAligmentFilter(AligmentFilter $aligmentFilter): void
     {
-        $this->raceFilter = $raceFilter;
+        $this->aligmentFilter = $aligmentFilter;
     }
 
     public function getRaceFilter(): ?RaceFilter
@@ -67,14 +62,19 @@ class Inventory extends Item implements InventoryInterface
         return $this->raceFilter;
     }
 
-    public function setClassFilter(ClassFilter $classFilter): void
+    public function setRaceFilter(RaceFilter $raceFilter): void
     {
-        $this->classFilter = $classFilter;
+        $this->raceFilter = $raceFilter;
     }
 
     public function getClassFilter(): ?ClassFilter
     {
         return $this->classFilter;
+    }
+
+    public function setClassFilter(ClassFilter $classFilter): void
+    {
+        $this->classFilter = $classFilter;
     }
 
 }

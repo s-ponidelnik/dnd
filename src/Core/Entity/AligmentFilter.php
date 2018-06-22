@@ -7,9 +7,32 @@
  */
 
 namespace App\Core\Entity;
+use App\Entity\CollectionInterface;
 
-
-class AligmentFilter extends Filter
+/**
+ * Class AligmentFilter
+ * @package App\Core\Entity
+ */
+class AligmentFilter extends FilterInCollection
 {
+    /**
+     * @var CollectionInterface
+     */
+    protected $collection;
 
+    /**
+     * @return CollectionInterface
+     */
+    public function getCollection(): CollectionInterface
+    {
+        return $this->collection;
+    }
+
+    /**
+     * @param CollectionInterface $collection
+     */
+    public function setCollection(CollectionInterface $collection): void
+    {
+        $this->collection = $collection;
+    }
 }

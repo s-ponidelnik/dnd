@@ -33,14 +33,6 @@ class Weapon extends Inventory implements LeftHandItemInterface, RightHandInterf
     protected $atackBonus;
 
     /**
-     * @param int $atackBonus
-     */
-    public function setAtackBonus(int $atackBonus): void
-    {
-        $this->atackBonus = $atackBonus;
-    }
-
-    /**
      * @return int
      */
     public function getAtackBonus(): int
@@ -49,11 +41,11 @@ class Weapon extends Inventory implements LeftHandItemInterface, RightHandInterf
     }
 
     /**
-     * @param Dice $dice
+     * @param int $atackBonus
      */
-    public function setDamageDice(Dice $dice): void
+    public function setAtackBonus(int $atackBonus): void
     {
-        $this->damageDice = $dice;
+        $this->atackBonus = $atackBonus;
     }
 
     /**
@@ -62,5 +54,13 @@ class Weapon extends Inventory implements LeftHandItemInterface, RightHandInterf
     public function getDamageDice(): Dice
     {
         return $this->damageDice;
+    }
+
+    /**
+     * @param Dice $dice
+     */
+    public function setDamageDice(Dice $dice): void
+    {
+        $this->damageDice = $dice;
     }
 }

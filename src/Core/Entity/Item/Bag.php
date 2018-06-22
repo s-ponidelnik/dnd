@@ -41,14 +41,6 @@ class Bag extends Inventory implements BagInterface
     private $weight;
 
     /**
-     * @param float $maxWeight
-     */
-    public function setMaxWeight(float $maxWeight): void
-    {
-        $this->maxWeight = $maxWeight;
-    }
-
-    /**
      * @return float|null
      */
     public function getMaxWeight(): ?float
@@ -57,11 +49,11 @@ class Bag extends Inventory implements BagInterface
     }
 
     /**
-     * @param float $staticWeight
+     * @param float $maxWeight
      */
-    public function setStaticWeight(float $staticWeight): void
+    public function setMaxWeight(float $maxWeight): void
     {
-        $this->staticWeight = $staticWeight;
+        $this->maxWeight = $maxWeight;
     }
 
     /**
@@ -73,11 +65,11 @@ class Bag extends Inventory implements BagInterface
     }
 
     /**
-     * @param CharacterItemCollection $items
+     * @param float $staticWeight
      */
-    public function setItems(CharacterItemCollection $items): void
+    public function setStaticWeight(float $staticWeight): void
     {
-        $this->items = $items;
+        $this->staticWeight = $staticWeight;
     }
 
     /**
@@ -86,6 +78,14 @@ class Bag extends Inventory implements BagInterface
     public function getItems(): ?CharacterItemCollection
     {
         return $this->items;
+    }
+
+    /**
+     * @param CharacterItemCollection $items
+     */
+    public function setItems(CharacterItemCollection $items): void
+    {
+        $this->items = $items;
     }
 
     /**

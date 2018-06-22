@@ -9,7 +9,10 @@
 namespace App\Core\Entity;
 
 
+use App\Entity\CollectionInterface;
+
 interface FilterInterface
 {
-
+    public function getCollection(): CollectionInterface;
+    public function setCollection(CollectionInterface $collection):void;
 }

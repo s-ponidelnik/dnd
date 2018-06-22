@@ -9,7 +9,7 @@
 namespace App\Core\Entity;
 
 
-class ClassFilter extends Filter
+class ClassFilter extends FilterInCollection
 {
 
 }
