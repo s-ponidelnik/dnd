@@ -3,33 +3,34 @@
  * Created by PhpStorm.
  * User: Sergey Ponidelnik
  * Date: 22/06/2018
- * Time: 09:38
+ * Time: 13:32
  */
 
 namespace App\Core\Entity;
-
 /**
- * Class CharacterClass
+ * Class CharacterSkill
  * @package App\Core\Entity
  */
-class CharacterClass
+class CharacterSkill
 {
     /**
-     * @var
+     * @var int
      */
     protected $id;
-
     /**
      * @var Character
      */
     protected $character;
-
     /**
-     * @var GameClass
+     * @var Skill
      */
-    protected $class;
+    protected $skill;
     /**
-     * @var int
+     * @var bool
      */
-    protected $level;
+    protected $proficiency;
+    /**
+     * @var bool
+     */
+    protected $expertise;
 }
