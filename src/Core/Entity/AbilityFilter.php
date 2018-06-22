@@ -9,7 +9,7 @@
 namespace App\Core\Entity;
 
 
-class AbilityFilter
+class AbilityFilter extends Filter
 {
     /**
      * @var Ability
@@ -20,8 +20,24 @@ class AbilityFilter
      */
     protected $minValue;
 
-    public function setMinValue(int $minValue):void{
+    public function setAbility(Ability $ability): void
+    {
+        $this->ability = $ability;
+    }
+
+    public function getAbility(): Ability
+    {
+        return $this->ability;
+    }
+
+    public function setMinValue(int $minValue): void
+    {
         $this->minValue = $minValue;
+    }
+
+    public function getMinValue(): int
+    {
+        return (int)$this->minValue;
     }
 
 }

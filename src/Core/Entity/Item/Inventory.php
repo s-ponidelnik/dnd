@@ -7,9 +7,11 @@
  */
 
 namespace App\Core\Entity\Item;
-use App\Core\Entity\Core\AligmentCollection;
-use App\Core\Entity\GameClassCollection;
-use App\Core\Entity\RaceCollection;
+
+use App\Core\Entity\AbilityFilter;
+use App\Core\Entity\AligmentFilter;
+use App\Core\Entity\ClassFilter;
+use App\Core\Entity\RaceFilter;
 
 
 /**
@@ -19,19 +21,60 @@ use App\Core\Entity\RaceCollection;
 class Inventory extends Item implements InventoryInterface
 {
     /**
-     * @var GameClassCollection
+     * @var ClassFilter
      */
     protected $classFilter;
     /**
-     * @var RaceCollection
+     * @var RaceFilter
      */
     protected $raceFilter;
     /**
-     * @var AligmentCollection
+     * @var AligmentFilter
      */
     protected $aligmentFilter;
     /**
-     * @var
+     * @var AbilityFilter
      */
     protected $abilityFilter;
+
+    public function setAbilityFilter(AbilityFilter $abilityFilter): void
+    {
+        $this->aligmentFilter = $abilityFilter;
+    }
+
+    public function getAbilityFilter(): ?AbilityFilter
+    {
+        return $this->abilityFilter;
+    }
+
+    public function setAligmentFilter(AligmentFilter $aligmentFilter): void
+    {
+        $this->aligmentFilter = $aligmentFilter;
+    }
+
+    public function getAligmentFilter(): ?AligmentFilter
+    {
+        return $this->aligmentFilter;
+    }
+
+    public function setRaceFilter(RaceFilter $raceFilter): void
+    {
+        $this->raceFilter = $raceFilter;
+    }
+
+    public function getRaceFilter(): ?RaceFilter
+    {
+        return $this->raceFilter;
+    }
+
+    public function setClassFilter(ClassFilter $classFilter): void
+    {
+        $this->classFilter = $classFilter;
+    }
+
+    public function getClassFilter(): ?ClassFilter
+    {
+        return $this->classFilter;
+    }
+
 }
