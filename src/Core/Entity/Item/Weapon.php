@@ -9,7 +9,58 @@
 namespace App\Core\Entity\Item;
 
 
+use App\Core\Entity\Dice\Dice;
+
+/**
+ * Class Weapon
+ * @package App\Core\Entity\Item
+ */
 class Weapon extends Item implements LeftHandItemInterface, RightHandInterface
 {
+    /**
+     *
+     */
     const TYPE = 'WEAPON';
+
+    /**
+     * @var Dice
+     */
+    protected $damageDice;
+
+    /**
+     * @var int
+     */
+    protected $atackBonus;
+
+    /**
+     * @param int $atackBonus
+     */
+    public function setAtackBonus(int $atackBonus): void
+    {
+        $this->atackBonus = $atackBonus;
+    }
+
+    /**
+     * @return int
+     */
+    public function getAtackBonus(): int
+    {
+        return (int)$this->atackBonus;
+    }
+
+    /**
+     * @param Dice $dice
+     */
+    public function setDamageDice(Dice $dice): void
+    {
+        $this->damageDice = $dice;
+    }
+
+    /**
+     * @return Dice
+     */
+    public function getDamageDice(): Dice
+    {
+        return $this->damageDice;
+    }
 }
