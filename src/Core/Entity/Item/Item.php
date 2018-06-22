@@ -11,7 +11,7 @@ namespace App\Core\Entity\Item;
  * Class Item
  * @package App\Core\Entity\Item
  */
-class Item
+class Item implements ItemInterface
 {
     const TYPE = 'ITEM';
     /**
@@ -52,11 +52,27 @@ class Item
     }
 
     /**
+     * @param string $name
+     */
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
+    /**
      * @return null|string
      */
     public function getDescription(): ?string
     {
         return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription(string $description): void
+    {
+        $this->description = $description;
     }
 
     /**
@@ -73,22 +89,6 @@ class Item
     public function getCount(): int
     {
         return $this->count;
-    }
-
-    /**
-     * @param string $name
-     */
-    public function setName(string $name): void
-    {
-        $this->name = $name;
-    }
-
-    /**
-     * @param string $description
-     */
-    public function setDescription(string $description): void
-    {
-        $this->description = $description;
     }
 
     /**

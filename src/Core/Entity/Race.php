@@ -9,7 +9,9 @@
 namespace App\Core\Entity;
 
 
+use App\Core\Entity\Core\AligmentCollection;
 use App\Core\Entity\Core\Source;
+use App\Entity\ColorCollection;
 
 /**
  * Class Race
@@ -37,15 +39,80 @@ class Race
      * @var AbilityScoreBonusCollection
      */
     protected $abilityScoreBonuses;
-
     /**
      * @var AbilityScoreBonusCollection
      */
     private $allAbilityScoreBonuses;
+    /**
+     * @var ColorCollection
+     */
+    protected $eyeColors;
+    /**
+     * @var int|null
+     */
+    protected $adultAge;
+    /**
+     * @var int|null
+     */
+    protected $maxAge;
+    /**
+     * @var ColorCollection
+     */
+    protected $hairColors;
 
-    public function getMainRace(): ?Race
+    /**
+     * @var AligmentCollection
+     */
+    protected $aligments;
+
+    public function setAligments(AligmentCollection $aligmentCollection): void
     {
-        return $this->parentRace;
+        $this->aligments = $aligmentCollection;
+    }
+
+    public function getAligments(): AligmentCollection
+    {
+        return $this->aligments;
+    }
+
+    public function setMaxAge(int $age): void
+    {
+        $this->maxAge = $age;
+    }
+
+    public function getMaxAge(): ?int
+    {
+        return $this->maxAge;
+    }
+
+    public function setAdultAge(int $age): void
+    {
+        $this->adultAge = $age;
+    }
+
+    public function getAdultAge(): ?int
+    {
+        return $this->adultAge;
+    }
+
+    public function setHairColors(ColorCollection $colorCollection): void
+    {
+        $this->hairColors = $colorCollection;
+    }
+
+    public function setEyeColors(ColorCollection $colorCollection): void
+    {
+        $this->eyeColors = $colorCollection;
+    }
+
+    public function getHairColors(): ?ColorCollection
+    {
+        return $this->hairColors;
+    }
+
+    public function getEyeColor(): ?ColorCollection
+    {
+        return $this->eyeColors;
     }
 
     public function getAbilityScoreBonuses(): AbilityScoreBonusCollection
@@ -64,5 +131,10 @@ class Race
             $this->abilityScoreBonuses->set($key, $value);
         }
         return $this->abilityScoreBonuses;
+    }
+
+    public function getMainRace(): ?Race
+    {
+        return $this->parentRace;
     }
 }

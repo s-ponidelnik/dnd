@@ -9,7 +9,7 @@
 namespace App\Core\Entity\Item;
 
 
-class Ring extends Item
+class Ring extends Item implements RingInterface
 {
     const TYPE = 'RING';
 }

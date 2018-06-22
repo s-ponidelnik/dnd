@@ -19,6 +19,7 @@ class D4 extends DiceType
      * @var int
      */
     protected $max = 4;
+
     /**
      * @return string
      */

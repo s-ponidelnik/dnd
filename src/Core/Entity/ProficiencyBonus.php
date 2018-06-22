@@ -22,10 +22,13 @@ class ProficiencyBonus
      */
     protected $value;
 
-    public function getLevel():int{
+    public function getLevel(): int
+    {
         return $this->level;
     }
-    public function getValue():int{
+
+    public function getValue(): int
+    {
         return $this->value;
     }
 }

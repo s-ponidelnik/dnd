@@ -19,6 +19,7 @@ class D12 extends DiceType
      * @var int
      */
     protected $max = 12;
+
     /**
      * @return string
      */

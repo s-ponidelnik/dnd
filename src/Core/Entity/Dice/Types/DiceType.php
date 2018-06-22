@@ -21,6 +21,7 @@ abstract class DiceType implements DiceTypeInterface
      * @var
      */
     protected $max;
+
     /**
      * @param $className
      * @return DiceType
@@ -33,6 +34,7 @@ abstract class DiceType implements DiceTypeInterface
         else
             throw new \Exception('Unknow type');
     }
+
     /**
      * @return DiceType
      */
@@ -41,6 +43,7 @@ abstract class DiceType implements DiceTypeInterface
         $diceType = new static();
         return $diceType;
     }
+
     /**
      * @return int
      */
@@ -48,13 +51,7 @@ abstract class DiceType implements DiceTypeInterface
     {
         return $this->min;
     }
-    /**
-     * @return int
-     */
-    public function getMax(): int
-    {
-        return $this->max;
-    }
+
     /**
      * @param int $min
      */
@@ -62,6 +59,15 @@ abstract class DiceType implements DiceTypeInterface
     {
         $this->min = $min;
     }
+
+    /**
+     * @return int
+     */
+    public function getMax(): int
+    {
+        return $this->max;
+    }
+
     /**
      * @param int $max
      */
@@ -69,6 +75,7 @@ abstract class DiceType implements DiceTypeInterface
     {
         $this->max = $max;
     }
+
     /**
      * @return string
      */

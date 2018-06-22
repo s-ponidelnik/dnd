@@ -29,6 +29,7 @@ class GameRule
      * @var string
      */
     protected $description;
+
     /**
      * @return int
      */
@@ -36,6 +37,7 @@ class GameRule
     {
         return $this->id;
     }
+
     /**
      * @return string
      */
@@ -43,20 +45,7 @@ class GameRule
     {
         return $this->name;
     }
-    /**
-     * @return null|string
-     */
-    public function getVersion(): ?string
-    {
-        return $this->version;
-    }
-    /**
-     * @return null|string
-     */
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
+
     /**
      * @param string $name
      */
@@ -64,6 +53,15 @@ class GameRule
     {
         $this->name = $name;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getVersion(): ?string
+    {
+        return $this->version;
+    }
+
     /**
      * @param string $version
      */
@@ -71,6 +69,15 @@ class GameRule
     {
         $this->version = $version;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
     /**
      * @param string $description
      */

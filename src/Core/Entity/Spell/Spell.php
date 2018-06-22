@@ -7,6 +7,7 @@
  */
 
 namespace App\Core\Entity\Spell;
+
 use App\Core\Entity\Core\Source;
 
 /**

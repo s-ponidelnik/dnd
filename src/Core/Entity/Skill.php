@@ -31,7 +31,7 @@ class Skill
      */
     protected $description;
 
-    public function getAbility():Ability
+    public function getAbility(): Ability
     {
         return $this->ability;
     }

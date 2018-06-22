@@ -12,18 +12,8 @@ namespace App\Core\Entity;
  * Class CharacterClass
  * @package App\Core\Entity
  */
-class CharacterClass
+class CharacterClass extends CharacterRel
 {
-    /**
-     * @var
-     */
-    protected $id;
-
-    /**
-     * @var Character
-     */
-    protected $character;
-
     /**
      * @var GameClass
      */

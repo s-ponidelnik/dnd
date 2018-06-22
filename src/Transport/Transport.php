@@ -6,13 +6,16 @@ use App\TransportLogger;
 
 abstract class Transport implements TransportInterface
 {
+    protected $logger;
     /** @var float */
     private $requestStartedAt = 0.0;
-
     /** @var float */
     private $responseReceivedAt = 0.0;
 
-    protected $logger;
+    public function __construct(TransportLogger $logger)
+    {
+        $this->logger = $logger;
+    }
 
     public function getLastRequestTime(): ?\DateTime
     {
@@ -21,11 +24,6 @@ abstract class Transport implements TransportInterface
         }
 
         return null;
-    }
-
-    public function __construct(TransportLogger $logger)
-    {
-        $this->logger = $logger;
     }
 
     public function getLastResponseTime(): ?\DateTime

@@ -9,7 +9,7 @@
 namespace App\Core\Entity\Item;
 
 
-class Cloth extends Item
+class Cloth extends Item implements ClothInterface
 {
     const TYPE = 'CLOTH';
 }

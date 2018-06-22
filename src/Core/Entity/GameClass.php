@@ -34,6 +34,7 @@ class GameClass
      * @var Source
      */
     protected $source;
+
     /**
      * @return int
      */
@@ -41,6 +42,7 @@ class GameClass
     {
         return $this->id;
     }
+
     /**
      * @return string
      */
@@ -48,13 +50,7 @@ class GameClass
     {
         return $this->name;
     }
-    /**
-     * @return Dice
-     */
-    public function getHitDice(): Dice
-    {
-        return $this->hitDice;
-    }
+
     /**
      * @param string $name
      */
@@ -62,6 +58,15 @@ class GameClass
     {
         $this->name = $name;
     }
+
+    /**
+     * @return Dice
+     */
+    public function getHitDice(): Dice
+    {
+        return $this->hitDice;
+    }
+
     /**
      * @param Dice $dice
      */

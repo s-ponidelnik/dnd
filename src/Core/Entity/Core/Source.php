@@ -56,43 +56,19 @@ class Source
     }
 
     /**
-     * @return null|string
-     */
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    /**
-     * @return bool
-     */
-    public function getOffical(): bool
-    {
-        return (bool)$this->offical;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getUrl(): ?string
-    {
-        return $this->url;
-    }
-
-    /**
-     * @return GameRule
-     */
-    public function getGameRule(): GameRule
-    {
-        return $this->gameRule;
-    }
-
-    /**
      * @param string $name
      */
     public function setName(string $name): void
     {
         $this->name = $name;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getDescription(): ?string
+    {
+        return $this->description;
     }
 
     /**
@@ -104,6 +80,14 @@ class Source
     }
 
     /**
+     * @return bool
+     */
+    public function getOffical(): bool
+    {
+        return (bool)$this->offical;
+    }
+
+    /**
      * @param bool $offical
      */
     public function setOffical(bool $offical): void
@@ -112,11 +96,27 @@ class Source
     }
 
     /**
+     * @return null|string
+     */
+    public function getUrl(): ?string
+    {
+        return $this->url;
+    }
+
+    /**
      * @param string $url
      */
     public function setUrl(string $url): void
     {
         $this->url = $url;
+    }
+
+    /**
+     * @return GameRule
+     */
+    public function getGameRule(): GameRule
+    {
+        return $this->gameRule;
     }
 
     /**

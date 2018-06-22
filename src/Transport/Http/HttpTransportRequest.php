@@ -13,21 +13,16 @@ class HttpTransportRequest implements RequestInterface
     const METHOD_HEAD = 'HEAD';
     const METHOD_OPTIONS = 'OPTIONS';
     const METHOD_DELETE = 'DELETE';
-
-    /** @var string */
-    private $url = '';
-
-    /** @var string */
-    private $method = self::METHOD_GET;
-
     /** @var array */
     protected $headers = [];
-
     /** @var HttpTransportRequestOptions */
     protected $options = null;
-
     /** @var string */
     protected $body = '';
+    /** @var string */
+    private $url = '';
+    /** @var string */
+    private $method = self::METHOD_GET;
 
     public function getUrl(): string
     {

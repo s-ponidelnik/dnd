@@ -34,4 +34,14 @@ class Ability
     {
         return $this->id;
     }
+
+    public function getShortName(): string
+    {
+        return $this->shortName;
+    }
+
+    public function setShortName(string $shortName): void
+    {
+        $this->shortName = $shortName;
+    }
 }

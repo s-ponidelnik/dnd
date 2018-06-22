@@ -35,16 +35,6 @@ class HttpTransportResponse implements ResponseInterface
     /** @var string */
     private $body = '';
 
-    public function getStatusCode(): int
-    {
-        return $this->statusCode;
-    }
-
-    public function setStatusCode(int $statusCode): void
-    {
-        $this->statusCode = $statusCode;
-    }
-
     public function getStatusMessage(): string
     {
         return $this->statusMessage;
@@ -58,6 +48,16 @@ class HttpTransportResponse implements ResponseInterface
     public function isStatusCodeOk(): bool
     {
         return $this->getStatusCode() === self::STATUS_OK;
+    }
+
+    public function getStatusCode(): int
+    {
+        return $this->statusCode;
+    }
+
+    public function setStatusCode(int $statusCode): void
+    {
+        $this->statusCode = $statusCode;
     }
 
     public function isStatusCodeError(): bool
@@ -80,11 +80,6 @@ class HttpTransportResponse implements ResponseInterface
         return $this->headers;
     }
 
-    public function getHeader(?string $headerName): ?array
-    {
-        return $this->headers[$headerName] ?? null;
-    }
-
     public function setHeaders(array $headers): void
     {
         $this->headers = $headers;
@@ -95,6 +90,11 @@ class HttpTransportResponse implements ResponseInterface
         $headers = $this->getHeader(self::HEADER_NAME_CONTENT_TYPE);
 
         return $headers ? reset($headers) : null;
+    }
+
+    public function getHeader(?string $headerName): ?array
+    {
+        return $this->headers[$headerName] ?? null;
     }
 
     public function getContentDisposition(): ?string

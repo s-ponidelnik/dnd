@@ -8,8 +8,7 @@
 
 namespace App\Logger;
 
-use /** @noinspection PhpUndefinedClassInspection */
-    Psr\Log\LoggerInterface;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /** @noinspection PhpUndefinedClassInspection */
@@ -21,43 +20,30 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
  */
 abstract class FileLogger implements LoggerInterface, FileLoggerInterface
 {
-    /* @var array $data log's container */
-    private $data = [];
-
     /***  Log file extension*/
     const EXTENSION = 'log';
-
     /*** Log file prefix*/
     const PREFIX = '';
-
     /*** Log Path*/
     const LOG_PATH = '../var/log/';
-
     /*** Emergency log level*/
     const EMERGENCY_LEVEL = 'emergency';
-
     /*** Alert log level*/
     const ALERT_LEVEL = 'alert';
-
     /*** Critical log level*/
     const CRITICAL_LEVEL = 'critical';
-
     /*** Error log level*/
     const ERROR_LEVEL = 'error';
-
     /*** Warning log level*/
     const WARNING_LEVEL = 'warning';
-
     /*** Notice log level*/
     const NOTICE_LEVEL = 'notice';
-
     /*** Info log level*/
     const INFO_LEVEL = 'info';
-
     /*** Debug log level*/
     const DEBUG_LEVEL = 'debug';
-
-
+    /* @var array $data log's container */
+    private $data = [];
     /*** @var EventDispatcherInterface $eventDispatcher */
     private $eventDispatcher;
     /*** @var bool|resource $fileHandle Log File Handle */
@@ -79,12 +65,12 @@ abstract class FileLogger implements LoggerInterface, FileLoggerInterface
     }
 
     /**
-     * Get filename
-     * @return string
+     * Create Log File
      */
-    private function getFileName()
+    private function createLogFile()
     {
-        return static::PREFIX . '_' . uniqid(date('Y-m-d_H-i-s_'));
+        $fileName = $this->getFullFileName();
+        $this->fileHandle = fopen(static::LOG_PATH . $fileName, 'c');
     }
 
     /**
@@ -100,31 +86,12 @@ abstract class FileLogger implements LoggerInterface, FileLoggerInterface
     }
 
     /**
-     * Create Log File
+     * Get filename
+     * @return string
      */
-    private function createLogFile()
+    private function getFileName()
     {
-        $fileName = $this->getFullFileName();
-        $this->fileHandle = fopen(static::LOG_PATH . $fileName, 'c');
-    }
-
-    /**
-     * Save log file
-     */
-    protected function save(): void
-    {
-        if ($this->fileHandle) {
-            fflush($this->fileHandle);
-        } else {
-            $this->createLogFile();
-            if (!empty($this->data)) {
-                /** @var LogMessageInterface $logMessage */
-                foreach ($this->data as $logMessage) {
-                    fwrite($this->fileHandle, $logMessage . "\n");
-                }
-                fflush($this->fileHandle);
-            }
-        }
+        return static::PREFIX . '_' . uniqid(date('Y-m-d_H-i-s_'));
     }
 
     /**
@@ -145,6 +112,23 @@ abstract class FileLogger implements LoggerInterface, FileLoggerInterface
     public function emergency($message, array $context = array()): void
     {
         $this->log($message, static::EMERGENCY_LEVEL, $context);
+    }
+
+    /**
+     * Log
+     * @param mixed $message
+     * @param null $level
+     * @param array $context
+     */
+    public function log($message, $level = null, array $context = array()): void
+    {
+        /** @var LogMessageInterface $logMessage */
+        $logMessage = $this->logMessage::create($level, $message, $context);
+        array_unshift($this->data, $logMessage);
+        if ($this->fileHandle) {
+            rewind($this->fileHandle);
+            fwrite($this->fileHandle, $logMessage . "\n");
+        }
     }
 
     /**
@@ -220,19 +204,21 @@ abstract class FileLogger implements LoggerInterface, FileLoggerInterface
     }
 
     /**
-     * Log
-     * @param mixed $message
-     * @param null $level
-     * @param array $context
+     * Save log file
      */
-    public function log($message, $level = null, array $context = array()): void
+    protected function save(): void
     {
-        /** @var LogMessageInterface $logMessage */
-        $logMessage = $this->logMessage::create($level, $message, $context);
-        array_unshift($this->data, $logMessage);
         if ($this->fileHandle) {
-            rewind($this->fileHandle);
-            fwrite($this->fileHandle, $logMessage . "\n");
+            fflush($this->fileHandle);
+        } else {
+            $this->createLogFile();
+            if (!empty($this->data)) {
+                /** @var LogMessageInterface $logMessage */
+                foreach ($this->data as $logMessage) {
+                    fwrite($this->fileHandle, $logMessage . "\n");
+                }
+                fflush($this->fileHandle);
+            }
         }
     }
 }

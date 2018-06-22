@@ -19,6 +19,7 @@ class D6 extends DiceType
      * @var int
      */
     protected $max = 6;
+
     /**
      * @return string
      */

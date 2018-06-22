@@ -5,6 +5,7 @@
  * Date: 13/06/2018
  * Time: 12:03
  */
+
 namespace App\Logger;
 
 /**
@@ -13,17 +14,16 @@ namespace App\Logger;
  */
 class LogMessage implements LogMessageInterface
 {
-    /* @var string Log Level*/
-    protected $level;
-    /* @var string $message Log Message*/
-    protected $message;
-    /* @var string $context Log Context*/
-    protected $context;
-    /* @var string $date Log Date*/
-    protected $date;
-
     /**Date format*/
     const DATE_FORMAT = 'Y-m-d G:i:s.u';
+    /* @var string Log Level */
+    protected $level;
+    /* @var string $message Log Message */
+    protected $message;
+    /* @var string $context Log Context */
+    protected $context;
+    /* @var string $date Log Date */
+    protected $date;
 
     /**
      * Create Log
@@ -40,13 +40,6 @@ class LogMessage implements LogMessageInterface
         $logMessage->setContext($context);
         $logMessage->setTimestamp();
         return $logMessage;
-    }
-
-    /**set current date with DATE_FORMAT*/
-    protected function setTimestamp(): void
-    {
-        $date = new \DateTime();
-        $this->date = $date->format(static::DATE_FORMAT);
     }
 
     /**
@@ -76,6 +69,13 @@ class LogMessage implements LogMessageInterface
         $this->context = json_encode($context);
     }
 
+    /**set current date with DATE_FORMAT*/
+    protected function setTimestamp(): void
+    {
+        $date = new \DateTime();
+        $this->date = $date->format(static::DATE_FORMAT);
+    }
+
     /**
      * Get Log
      * @return string
@@ -88,7 +88,7 @@ class LogMessage implements LogMessageInterface
         if ($this->level)
             $stringMessage = $stringMessage . '(' . $this->level . ') ';
         if ($this->message)
-            $stringMessage = $stringMessage . $this->message.' '.$this->context;
+            $stringMessage = $stringMessage . $this->message . ' ' . $this->context;
         return $stringMessage;
     }
 }

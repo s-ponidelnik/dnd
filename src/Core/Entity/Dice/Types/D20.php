@@ -19,6 +19,7 @@ class D20 extends DiceType
      * @var int
      */
     protected $max = 20;
+
     /**
      * @return string
      */

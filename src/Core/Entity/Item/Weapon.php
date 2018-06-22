@@ -9,7 +9,7 @@
 namespace App\Core\Entity\Item;
 
 
-class Weapon extends Item
+class Weapon extends Item implements LeftHandItemInterface, RightHandInterface
 {
     const TYPE = 'WEAPON';
 }

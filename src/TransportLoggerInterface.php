@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+
 use Symfony\Component\HttpKernel\Event\PostResponseEvent;
 
 /**
@@ -13,5 +14,5 @@ interface TransportLoggerInterface
      * On kernel.terminate event
      * @param PostResponseEvent $event
      */
-    public function onKernelTerminate(PostResponseEvent $event):void ;
+    public function onKernelTerminate(PostResponseEvent $event): void;
 }

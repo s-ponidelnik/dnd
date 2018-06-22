@@ -12,13 +12,13 @@ class RestTestRequest extends RestRequest
      */
     private $test;
 
-    public function setTest($test)
-    {
-        $this->test = $test;
-    }
-
     public function getTest()
     {
         return $this->test;
+    }
+
+    public function setTest($test)
+    {
+        $this->test = $test;
     }
 }

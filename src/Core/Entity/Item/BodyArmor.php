@@ -9,7 +9,7 @@
 namespace App\Core\Entity\Item;
 
 
-class BodyArmor extends Armor
+class BodyArmor extends Armor implements BodyArmorInterface
 {
-    const TYPE='BODY_ARMOR';
+    const TYPE = 'BODY_ARMOR';
 }

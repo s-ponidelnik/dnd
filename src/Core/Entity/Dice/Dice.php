@@ -22,6 +22,15 @@ final class Dice
     protected $type;
 
     /**
+     * Dice constructor.
+     * @param DiceType $type
+     */
+    public function __construct(DiceType $type)
+    {
+        $this->type = $type;
+    }
+
+    /**
      * @param DiceType $type
      * @return Dice
      */
@@ -29,15 +38,6 @@ final class Dice
     {
         $dice = new static($type);
         return $dice;
-    }
-
-    /**
-     * Dice constructor.
-     * @param DiceType $type
-     */
-    public function __construct(DiceType $type)
-    {
-        $this->type = $type;
     }
 
     /**

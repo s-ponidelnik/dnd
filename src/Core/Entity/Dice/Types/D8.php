@@ -19,6 +19,7 @@ class D8 extends DiceType
      * @var int
      */
     protected $max = 8;
+
     /**
      * @return string
      */

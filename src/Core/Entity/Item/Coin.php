@@ -9,7 +9,7 @@
 namespace App\Core\Entity\Item;
 
 
-class Coin extends Item
+class Coin extends Item implements CoinInterface
 {
     const TYPE = 'COIN';
 

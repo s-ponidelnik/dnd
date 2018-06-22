@@ -11,16 +11,8 @@ namespace App\Core\Entity;
  * Class CharacterSkill
  * @package App\Core\Entity
  */
-class CharacterSkill
+class CharacterSkill extends CharacterRel
 {
-    /**
-     * @var int
-     */
-    protected $id;
-    /**
-     * @var Character
-     */
-    protected $character;
     /**
      * @var Skill
      */
@@ -33,16 +25,6 @@ class CharacterSkill
      * @var bool
      */
     protected $expertise;
-
-    public function isExpertise(): bool
-    {
-        return $this->expertise;
-    }
-
-    public function isProfiency(): bool
-    {
-        return $this->proficiency;
-    }
 
     public function getValue(): int
     {
@@ -57,6 +39,16 @@ class CharacterSkill
 
     public function getCharacterAbility(): CharacterAbilityScore
     {
-        return $this->character->getAbilities()->get($this->skill->getAbility()->getId());
+        return $this->character->getAbilities()->get($this->skill->getAbility()->getShortName());
+    }
+
+    public function isProfiency(): bool
+    {
+        return $this->proficiency;
+    }
+
+    public function isExpertise(): bool
+    {
+        return $this->expertise;
     }
 }

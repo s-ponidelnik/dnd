@@ -46,6 +46,16 @@ class RestExceptionController
         return $this->viewHandler->handle($view);
     }
 
+    private function getAndCleanOutputBuffering(int $startObLevel): string
+    {
+        if (ob_get_level() <= $startObLevel) {
+            return '';
+        }
+        Response::closeOutputBuffers((int)($startObLevel + 1), true);
+
+        return ob_get_clean();
+    }
+
     private function getStatusCode(\Throwable $exception): int
     {
         if ($exception instanceof RestException) {
@@ -90,15 +100,5 @@ class RestExceptionController
         }
 
         return [];
-    }
-
-    private function getAndCleanOutputBuffering(int $startObLevel): string
-    {
-        if (ob_get_level() <= $startObLevel) {
-            return '';
-        }
-        Response::closeOutputBuffers((int)($startObLevel + 1), true);
-
-        return ob_get_clean();
     }
 }

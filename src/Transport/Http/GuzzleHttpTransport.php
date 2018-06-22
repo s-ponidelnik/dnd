@@ -6,10 +6,10 @@ use App\Transport\Exception\TransportException;
 use App\Transport\RequestInterface;
 use App\Transport\ResponseInterface;
 use App\Transport\Transport;
-use \GuzzleHttp\Client;
-use \GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Client;
+use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use \GuzzleHttp\TransferStats;
+use GuzzleHttp\TransferStats;
 
 class GuzzleHttpTransport extends Transport implements HttpTransportInterface
 {
@@ -20,7 +20,7 @@ class GuzzleHttpTransport extends Transport implements HttpTransportInterface
     private $response;
 
     /**
-     * @param RequestInterface  $request
+     * @param RequestInterface $request
      * @param ResponseInterface $response
      *
      * @throws TransportException
@@ -44,11 +44,11 @@ class GuzzleHttpTransport extends Transport implements HttpTransportInterface
 
             if ($stats->hasResponse()) {
                 $httpResponse = $stats->getResponse();
-                $response->setBody((string) $httpResponse->getBody());
-                $response->setStatusCode((int) $httpResponse->getStatusCode());
+                $response->setBody((string)$httpResponse->getBody());
+                $response->setStatusCode((int)$httpResponse->getStatusCode());
                 $response->setHeaders($httpResponse->getHeaders());
-                $response->setStatusMessage((string) $httpResponse->getReasonPhrase());
-                $response->setHttpVersion((string) $httpResponse->getProtocolVersion());
+                $response->setStatusMessage((string)$httpResponse->getReasonPhrase());
+                $response->setHttpVersion((string)$httpResponse->getProtocolVersion());
 
                 // Request timeout case.
                 if (28 == $stats->getHandlerErrorData() && 200 == $httpResponse->getStatusCode()) {
@@ -73,11 +73,11 @@ class GuzzleHttpTransport extends Transport implements HttpTransportInterface
         }
 
         if ($httpClientResponse) {
-            $response->setStatusCode((int) $httpClientResponse->getStatusCode());
-            $response->setStatusMessage((string) $httpClientResponse->getReasonPhrase());
-            $response->setHttpVersion((string) $httpClientResponse->getProtocolVersion());
+            $response->setStatusCode((int)$httpClientResponse->getStatusCode());
+            $response->setStatusMessage((string)$httpClientResponse->getReasonPhrase());
+            $response->setHttpVersion((string)$httpClientResponse->getProtocolVersion());
             $response->setHeaders($httpClientResponse->getHeaders());
-            $response->setBody((string) $httpClientResponse->getBody());
+            $response->setBody((string)$httpClientResponse->getBody());
         }
     }
 

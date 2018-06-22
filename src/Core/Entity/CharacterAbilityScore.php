@@ -11,16 +11,8 @@ namespace App\Core\Entity;
  * Class CharacterAbilityScore
  * @package App\Core\Entity
  */
-class CharacterAbilityScore
+class CharacterAbilityScore extends CharacterRel
 {
-    /**
-     * @var int
-     */
-    protected $id;
-    /**
-     * @var Character
-     */
-    protected $character;
     /**
      * @var Ability
      */
@@ -30,6 +22,10 @@ class CharacterAbilityScore
      */
     protected $value;
 
+    public function getModifier(): int
+    {
+        return (int)($this->getValue() - 10) / 2;
+    }
 
     public function getValue()
     {
@@ -42,10 +38,5 @@ class CharacterAbilityScore
             if ($this->character->getRace()->getAbilityScoreBonuses()->containsKey($this->id))
                 return $this->character->getRace()->getAbilityScoreBonuses()->get($this->id);
         return 0;
-    }
-
-    public function getModifier(): int
-    {
-        return (int)($this->getValue() - 10) / 2;
     }
 }

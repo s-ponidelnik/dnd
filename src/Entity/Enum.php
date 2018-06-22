@@ -33,29 +33,9 @@ abstract class Enum
         $this->value = $value;
     }
 
-    public function getValue(): string
+    public static function isValid(string $value): bool
     {
-        return $this->value;
-    }
-
-    public function __toString()
-    {
-        return $this->getValue();
-    }
-
-    final public function equals(Enum $enum): bool
-    {
-        return $this->getValue() === $enum->getValue() && get_called_class() == get_class($enum);
-    }
-
-    public static function values(): array
-    {
-        $values = [];
-        foreach (static::toArray() as $key => $value) {
-            $values[$key] = static::getInstance($value);
-        }
-
-        return $values;
+        return in_array($value, static::toArray(), true);
     }
 
     /**
@@ -78,9 +58,14 @@ abstract class Enum
         return static::$cache[$class];
     }
 
-    public static function isValid(string $value): bool
+    public static function values(): array
     {
-        return in_array($value, static::toArray(), true);
+        $values = [];
+        foreach (static::toArray() as $key => $value) {
+            $values[$key] = static::getInstance($value);
+        }
+
+        return $values;
     }
 
     public static function getInstance(string $value): Enum
@@ -91,5 +76,20 @@ abstract class Enum
         }
 
         return new static($value);
+    }
+
+    public function __toString()
+    {
+        return $this->getValue();
+    }
+
+    public function getValue(): string
+    {
+        return $this->value;
+    }
+
+    final public function equals(Enum $enum): bool
+    {
+        return $this->getValue() === $enum->getValue() && get_called_class() == get_class($enum);
     }
 }

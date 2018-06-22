@@ -9,7 +9,7 @@
 namespace App\Core\Entity\Item;
 
 
-class Shield extends Armor
+class Shield extends Armor implements LeftHandItemInterface
 {
     const TYPE = 'SHIELD';
 }

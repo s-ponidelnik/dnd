@@ -17,11 +17,6 @@ class RestResponseBuilder
         $this->serializer = $serializer;
     }
 
-    public function getSerializer(): SerializerInterface
-    {
-        return $this->serializer;
-    }
-
     public function build(RestResponse $response, int $statusCode = null, array $headers = []): View
     {
         $data = $this->getSerializer()->serialize($response, 'json');
@@ -30,5 +25,10 @@ class RestResponseBuilder
         }
 
         return View::create($data, $statusCode, $headers);
+    }
+
+    public function getSerializer(): SerializerInterface
+    {
+        return $this->serializer;
     }
 }

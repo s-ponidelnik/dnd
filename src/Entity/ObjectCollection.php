@@ -17,44 +17,6 @@ class ObjectCollection extends Collection
         parent::__construct($elements);
     }
 
-    public function offsetSet($offset, $value): void
-    {
-        if (!$this->isValid($value)) {
-            $this->throwInvalidObjectClassException();
-        }
-
-        parent::offsetSet($offset, $value);
-    }
-
-    public function set($key, $value): void
-    {
-        if (!$this->isValid($value)) {
-            $this->throwInvalidObjectClassException();
-        }
-
-        parent::set($key, $value);
-    }
-
-    public function add($element): void
-    {
-        if (!$this->isValid($element)) {
-            $this->throwInvalidObjectClassException();
-        }
-
-        parent::add($element);
-    }
-
-    public function addUnique($element): bool
-    {
-        if ($this->contains($element)) {
-            return false;
-        }
-
-        $this->add($element);
-
-        return true;
-    }
-
     public function isValid($values): bool
     {
         if (!$values) {
@@ -77,5 +39,43 @@ class ObjectCollection extends Collection
     protected function throwInvalidObjectClassException(): void
     {
         throw new \InvalidArgumentException('Elements must be of type ' . $this->className);
+    }
+
+    public function offsetSet($offset, $value): void
+    {
+        if (!$this->isValid($value)) {
+            $this->throwInvalidObjectClassException();
+        }
+
+        parent::offsetSet($offset, $value);
+    }
+
+    public function set($key, $value): void
+    {
+        if (!$this->isValid($value)) {
+            $this->throwInvalidObjectClassException();
+        }
+
+        parent::set($key, $value);
+    }
+
+    public function addUnique($element): bool
+    {
+        if ($this->contains($element)) {
+            return false;
+        }
+
+        $this->add($element);
+
+        return true;
+    }
+
+    public function add($element): void
+    {
+        if (!$this->isValid($element)) {
+            $this->throwInvalidObjectClassException();
+        }
+
+        parent::add($element);
     }
 }

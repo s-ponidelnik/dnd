@@ -26,6 +26,7 @@ final class DiceRoll
      * @var int
      */
     protected $count;
+
     /**
      * DiceRoll constructor.
      * @param int $count
@@ -36,27 +37,7 @@ final class DiceRoll
         $this->setCount($count);
         $this->setDiceType($diceType);
     }
-    /**
-     * @return int
-     */
-    public function getCount(): int
-    {
-        return $this->count;
-    }
-    /**
-     * @return Dice
-     */
-    public function getDice(): Dice
-    {
-        return $this->dice;
-    }
-    /**
-     * @param int $count
-     */
-    public function setCount(int $count): void
-    {
-        $this->count = $count;
-    }
+
     /**
      * @param DiceType $diceType
      */
@@ -64,23 +45,7 @@ final class DiceRoll
     {
         $this->dice = new Dice($diceType);
     }
-    /**
-     * @param Dice $dice
-     */
-    public function setDice(Dice $dice): void
-    {
-        $this->dice = $dice;
-    }
-    /**
-     * @param int $count
-     * @param DiceType $diceType
-     * @return int
-     */
-    public static function diceRoll(int $count, DiceType $diceType): int
-    {
-        $diceRoll = new static($count, $diceType);
-        return $diceRoll->roll();
-    }
+
     /**
      * @param string $rollDice
      * @return int
@@ -91,6 +56,18 @@ final class DiceRoll
         $rollData = explode('d', $rollDice);
         return static::diceRoll($rollData[0], DiceType::getType($rollData[1]));
     }
+
+    /**
+     * @param int $count
+     * @param DiceType $diceType
+     * @return int
+     */
+    public static function diceRoll(int $count, DiceType $diceType): int
+    {
+        $diceRoll = new static($count, $diceType);
+        return $diceRoll->roll();
+    }
+
     /**
      * @return int
      */
@@ -103,5 +80,37 @@ final class DiceRoll
             $count++;
         }
         return $result;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCount(): int
+    {
+        return $this->count;
+    }
+
+    /**
+     * @param int $count
+     */
+    public function setCount(int $count): void
+    {
+        $this->count = $count;
+    }
+
+    /**
+     * @return Dice
+     */
+    public function getDice(): Dice
+    {
+        return $this->dice;
+    }
+
+    /**
+     * @param Dice $dice
+     */
+    public function setDice(Dice $dice): void
+    {
+        $this->dice = $dice;
     }
 }
