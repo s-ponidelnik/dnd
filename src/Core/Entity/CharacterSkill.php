@@ -33,4 +33,30 @@ class CharacterSkill
      * @var bool
      */
     protected $expertise;
+
+    public function isExpertise(): bool
+    {
+        return $this->expertise;
+    }
+
+    public function isProfiency(): bool
+    {
+        return $this->proficiency;
+    }
+
+    public function getValue(): int
+    {
+        $value = $this->getCharacterAbility()->getModifier();
+        if ($this->isProfiency()) {
+            $value = $value + $this->character->getProficiencyBonus();
+            if ($this->isExpertise())
+                $value = $value + $this->character->getProficiencyBonus();
+        }
+        return $value;
+    }
+
+    public function getCharacterAbility(): CharacterAbilityScore
+    {
+        return $this->character->getAbilities()->get($this->skill->getAbility()->getId());
+    }
 }

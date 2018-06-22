@@ -10,6 +10,7 @@ namespace App\Core\Entity;
 
 
 use App\Core\Entity\Core\Source;
+
 /**
  * Class Race
  * @package App\Core\Entity
@@ -32,4 +33,36 @@ class Race
      * @var Source
      */
     protected $source;
+    /**
+     * @var AbilityScoreBonusCollection
+     */
+    protected $abilityScoreBonuses;
+
+    /**
+     * @var AbilityScoreBonusCollection
+     */
+    private $allAbilityScoreBonuses;
+
+    public function getMainRace(): ?Race
+    {
+        return $this->parentRace;
+    }
+
+    public function getAbilityScoreBonuses(): AbilityScoreBonusCollection
+    {
+        if ($this->allAbilityScoreBonuses)
+            return $this->allAbilityScoreBonuses;
+
+        if (!$this->getMainRace())
+            return $this->abilityScoreBonuses;
+
+        $this->abilityScoreBonuses = clone $this->abilityScoreBonuses;
+        foreach ($this->getMainRace()->getAbilityScoreBonuses() as $key => $value) {
+            if ($this->abilityScoreBonuses->containsKey($key)) {
+                $value = $value + $this->abilityScoreBonuses->get($key);
+            }
+            $this->abilityScoreBonuses->set($key, $value);
+        }
+        return $this->abilityScoreBonuses;
+    }
 }

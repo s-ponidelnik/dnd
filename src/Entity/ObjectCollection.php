@@ -76,6 +76,6 @@ class ObjectCollection extends Collection
 
     protected function throwInvalidObjectClassException(): void
     {
-        throw new \InvalidArgumentException('Elements must be of type '.$this->className);
+        throw new \InvalidArgumentException('Elements must be of type ' . $this->className);
     }
 }

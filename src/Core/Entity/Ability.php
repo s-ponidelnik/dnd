@@ -25,9 +25,13 @@ class Ability
      * @var string
      */
     protected $shortName;
-
     /**
      * @var
      */
     protected $description;
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
 }

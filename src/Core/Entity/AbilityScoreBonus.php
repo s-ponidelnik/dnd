@@ -3,36 +3,38 @@
  * Created by PhpStorm.
  * User: Sergey Ponidelnik
  * Date: 22/06/2018
- * Time: 13:15
+ * Time: 14:38
  */
 
 namespace App\Core\Entity;
 /**
- * Class Skill
+ * Class AbilityScoreBonus
  * @package App\Core\Entity
  */
-class Skill
+class AbilityScoreBonus
 {
-    /**
-     * @var int
-     */
-    protected $id;
     /**
      * @var Ability
      */
     protected $ability;
+    /**
+     * @var int
+     */
+    protected $bonus;
 
     /**
-     * @var string
+     * @return Ability
      */
-    protected $name;
-    /**
-     * @var string
-     */
-    protected $description;
-
-    public function getAbility():Ability
+    public function getAbility(): Ability
     {
         return $this->ability;
+    }
+
+    /**
+     * @return int
+     */
+    public function getBonus(): int
+    {
+        return $this->bonus;
     }
 }

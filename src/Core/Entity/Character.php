@@ -7,6 +7,7 @@
  */
 
 namespace App\Core\Entity;
+
 use App\Core\Entity\Item\ItemCollection;
 
 /**
@@ -15,6 +16,10 @@ use App\Core\Entity\Item\ItemCollection;
  */
 class Character
 {
+    /**
+     * @var ProficiencyBonus
+     */
+    protected $proficiencyBonus;
     /**
      * @var int
      */
@@ -63,4 +68,26 @@ class Character
      * @var CharacterEquipment
      */
     protected $equipment;
+
+    protected $level;
+
+    public function getAbilities(): CharacterAbilityCollection
+    {
+        return $this->abilities;
+    }
+
+    public function getLevel(): int
+    {
+        return $this->level;
+    }
+
+    public function getProficiencyBonus(): int
+    {
+        return $this->proficiencyBonus->getValue();
+    }
+
+    public function getRace(): Race
+    {
+        return $this->race;
+    }
 }
