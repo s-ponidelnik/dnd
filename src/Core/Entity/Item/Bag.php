@@ -15,7 +15,7 @@ use App\Core\Entity\CharacterItemCollection;
  * Class Bag
  * @package App\Core\Entity\Item
  */
-class Bag implements BagInterface
+class Bag extends Inventory implements BagInterface
 {
     /**
      *

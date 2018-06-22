@@ -9,7 +9,7 @@
 namespace App\Core\Entity\Item;
 
 
-class Amulet extends Item implements AmuletInterface
+class Amulet extends Inventory implements AmuletInterface
 {
     const TYPE = 'AMULET';
 }

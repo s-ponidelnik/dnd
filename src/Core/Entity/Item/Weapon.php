@@ -15,7 +15,7 @@ use App\Core\Entity\Dice\Dice;
  * Class Weapon
  * @package App\Core\Entity\Item
  */
-class Weapon extends Item implements LeftHandItemInterface, RightHandInterface
+class Weapon extends Inventory implements LeftHandItemInterface, RightHandInterface
 {
     /**
      *

@@ -9,7 +9,7 @@
 namespace App\Core\Entity\Item;
 
 
-class Cloak extends Item implements CloakInterface
+class Cloak extends Inventory implements CloakInterface
 {
     const TYPE = 'CLOAK';
 }

@@ -9,7 +9,7 @@
 namespace App\Core\Entity\Item;
 
 
-class Cap extends Item implements CapInterface
+class Cap extends Inventory implements CapInterface
 {
     const TYPE = 'CAP';
 }
