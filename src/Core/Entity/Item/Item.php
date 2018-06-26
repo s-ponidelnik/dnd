@@ -36,6 +36,11 @@ class Item implements ItemInterface
     protected $count;
 
     /**
+     * @var ItemModificators
+     */
+    protected $itemModificators;
+
+    /**
      * @return int
      */
     public function getId(): int

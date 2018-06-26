@@ -7,6 +7,7 @@
  */
 
 namespace App\Core\Entity;
+use App\Core\Entity\Core\AligmentCollection;
 use App\Entity\CollectionInterface;
 
 /**
@@ -29,9 +30,9 @@ class AligmentFilter extends FilterInCollection
     }
 
     /**
-     * @param CollectionInterface $collection
+     * @param AligmentCollection $collection
      */
-    public function setCollection(CollectionInterface $collection): void
+    public function setCollection(AligmentCollection $collection): void
     {
         $this->collection = $collection;
     }

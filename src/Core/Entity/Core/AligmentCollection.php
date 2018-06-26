@@ -8,9 +8,10 @@
 
 namespace App\Core\Entity\Core;
 
+use App\Entity\CollectionInterface;
 use App\Entity\ObjectCollection;
 
-class AligmentCollection extends ObjectCollection
+class AligmentCollection extends ObjectCollection implements CollectionInterface
 {
     public function __construct(array $elements = [])
     {
