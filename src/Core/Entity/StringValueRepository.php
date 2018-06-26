@@ -13,7 +13,7 @@ abstract class StringValueRepository
 {
     protected $data = [];
 
-    public function set(string $key, string $value): void
+    public function set(string $key, S $value): void
     {
         $this->data[$key] = $value;
     }
