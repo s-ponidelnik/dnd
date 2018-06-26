@@ -9,6 +9,7 @@
 namespace App\Core\Entity;
 
 use App\Core\Entity\Core\Aligment;
+use App\Core\Entity\Core\LanguageProfiencyCollection;
 use App\Entity\Color;
 
 /**
@@ -17,37 +18,28 @@ use App\Entity\Color;
  */
 class Character
 {
-    /**
-     * @var ProficiencyBonus
-     */
+    /** @var ProficiencyBonus */
     protected $proficiencyBonus;
-    /**
-     * @var int
-     */
+
+    /** @var int */
     protected $id;
-    /**
-     * @var string|null
-     */
+
+    /** @var string|null */
     protected $name;
-    /**
-     * @var int
-     */
+
+    /** @var int */
     protected $speed;
-    /**
-     * @var int
-     */
+
+    /** @var int */
     protected $ac;
-    /**
-     * @var int
-     */
+
+    /** @var int */
     protected $hp;
-    /**
-     * @var int
-     */
+
+    /** @var int */
     protected $maxHp;
-    /**
-     * @var Race
-     */
+
+    /** @var Race */
     protected $race;
     /**
      * @var CharacterClassCollection
@@ -61,51 +53,38 @@ class Character
      * @var CharacterSkillCollection
      */
     protected $skils;
-    /**
-     * @var CharacterItemCollection
-     */
+
+    /** @var CharacterItemCollection */
     protected $items;
-    /**
-     * @var CharacterEquipment
-     */
+
+    /** @var CharacterEquipment */
     protected $equipment;
-    /**
-     * @var int
-     */
+
+    /** @var int */
     protected $level;
-    /**
-     * @var CharacterFeatCollection
-     */
+
+    /** @var CharacterFeatCollection */
     protected $feats;
 
-    /**
-     * @var float
-     */
+    /** @var float */
     protected $weight;
-    /**
-     * @var float
-     */
+    /** @var float */
     protected $height;
 
-    /**
-     * @var Color
-     */
+    /** @var Color|null */
     protected $eyeColor;
 
-    /**
-     * @var Color
-     */
+    /** @var Color|null */
     protected $hairColor;
 
-    /**
-     * @var int|null
-     */
+    /** @var int|null */
     protected $temporaryHp;
 
-    /**
-     * @var Aligment
-     */
+    /** @var Aligment */
     protected $aligment;
+
+    /** @var LanguageProfiencyCollection */
+    protected $languages;
 
     public function getAligment(): Aligment
     {
@@ -124,7 +103,7 @@ class Character
 
     public function getTemporaryHp(): ?int
     {
-        $this->temporaryHp;
+        return $this->temporaryHp;
     }
 
     public function getEyeColor(): Color

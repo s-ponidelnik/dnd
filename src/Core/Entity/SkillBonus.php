@@ -11,8 +11,12 @@ namespace App\Core\Entity;
 
 class SkillBonus
 {
+    /** @var int */
     protected $id;
+    /** @var bool */
     protected $proficiency;
+    /** @var bool */
     protected $expertise;
+    /** @var int */
     protected $value;
 }

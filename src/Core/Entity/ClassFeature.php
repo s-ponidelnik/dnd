@@ -9,13 +9,13 @@
 namespace App\Core\Entity;
 
 
-class ClassFeat
+class ClassFeature
 {
     /** @var GameClass|SubClass */
     protected $class;
 
-    /** @var Feat */
-    protected $feat;
+    /** @var Feature */
+    protected $feature;
 
     /** @var int */
     protected $level;
