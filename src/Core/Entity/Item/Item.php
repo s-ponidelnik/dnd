@@ -35,6 +35,9 @@ class Item implements ItemInterface
      */
     protected $count;
 
+    /** @var Cost */
+    protected $cost;
+
     /**
      * @var ItemModificators
      */
