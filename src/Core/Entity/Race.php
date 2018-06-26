@@ -62,7 +62,10 @@ class Race
     /**
      * @var AbilityScoreBonusCollection
      */
-    private $allAbilityScoreBonuses;
+    protected $allAbilityScoreBonuses;
+
+    /** @var bool */
+    protected $playable;
 
     public function getAligments(): AligmentCollection
     {
