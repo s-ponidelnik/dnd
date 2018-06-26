@@ -10,6 +10,7 @@ namespace App\Core\Entity;
 
 
 use App\Core\Entity\Core\AligmentCollection;
+use App\Core\Entity\Core\LanguageCollection;
 use App\Core\Entity\Core\Source;
 use App\Entity\ColorCollection;
 
@@ -67,6 +68,11 @@ class Race
     /** @var bool */
     protected $playable;
 
+    /** @var LanguageCollection */
+    protected $languages;
+    public function getLanguages():LanguageCollection{
+        return $this->languages;
+    }
     public function getAligments(): AligmentCollection
     {
         return $this->aligments;

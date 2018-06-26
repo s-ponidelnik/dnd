@@ -11,11 +11,17 @@ namespace App\Core\Entity\World;
 
 abstract class GeoObject
 {
-    const TYPE='OBJECT';
+    const TYPE = 'OBJECT';
+    
     /** @var Location */
     protected $location;
+
     /** @var string */
     protected $name;
+
     /** @var string */
     protected $description;
+
+    /** @var GeoObjectCollection|null */
+    protected $objects;
 }

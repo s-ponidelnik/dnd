@@ -9,6 +9,7 @@
 namespace App\Core\Entity;
 
 use App\Core\Entity\Core\Aligment;
+use App\Core\Entity\Core\CharacterName;
 use App\Core\Entity\Core\LanguageProfiencyCollection;
 use App\Entity\Color;
 
@@ -24,7 +25,7 @@ class Character
     /** @var int */
     protected $id;
 
-    /** @var string|null */
+    /** @var CharacterName */
     protected $name;
 
     /** @var int */

@@ -9,7 +9,6 @@
 namespace App\Core\Entity\World\Population;
 
 
-use App\Core\Entity\GameYear;
 use App\Core\Entity\Race;
 
 class PopulationData
@@ -20,6 +19,19 @@ class PopulationData
     protected $age;
     /** @var int */
     protected $amount;
-    /** @var GameYear */
-    protected $year;
+
+    public function getRace(): Race
+    {
+        return $this->race;
+    }
+
+    public function getAge(): int
+    {
+        return $this->age;
+    }
+
+    public function getAmount(): int
+    {
+        return $this->amount;
+    }
 }

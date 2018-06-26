@@ -21,4 +21,14 @@ class CharacterBackground
     protected $languages;
     /** @var FeatureCollection */
     protected $features;
+
+    protected $equipment;
+
+    protected $personalTraits;
+
+    protected $ideal;
+
+    protected $bond;
+
+    protected $flaw;
 }
