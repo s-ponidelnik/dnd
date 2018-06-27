@@ -16,21 +16,16 @@ use App\Core\Entity\Core\Description;
  */
 class Ability
 {
-    /**
-     * @var int
-     */
+    /** @var int */
     protected $id;
-    /**
-     * @var string
-     */
+
+    /** @var string */
     protected $name;
-    /**
-     * @var string
-     */
+
+    /** @var string */
     protected $shortName;
-    /**
-     * @var Description
-     */
+
+    /** @var Description */
     protected $description;
 
     public function getId(): int
