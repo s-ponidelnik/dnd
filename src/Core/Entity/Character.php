@@ -10,7 +10,6 @@ namespace App\Core\Entity;
 
 use App\Core\Entity\Core\Aligment;
 use App\Core\Entity\Core\CharacterName;
-use App\Core\Entity\Core\GameRuleMechanic;
 use App\Entity\Color;
 
 /**
@@ -42,18 +41,18 @@ class Character
 
     /** @var Race */
     protected $race;
-    /**
-     * @var CharacterClassCollection
-     */
+
+    /** @var CharacterClassCollection */
     protected $classes;
-    /**
-     * @var CharacterAbilityCollection
-     */
+
+    /** @var CharacterAbilityCollection */
     protected $abilities;
-    /**
-     * @var CharacterSkillCollection
-     */
+
+    /** @var CharacterSkillCollection */
     protected $skils;
+
+    /** @var CharacterSavingThrowCollection */
+    protected $savingThrows;
 
     /** @var CharacterItemCollection */
     protected $items;

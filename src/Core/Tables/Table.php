@@ -25,7 +25,13 @@ class Table
         }
         return $results;
     }
-    public function getName():string
+
+    public function getAll(): array
+    {
+        return $this->data;
+    }
+
+    public function getName(): string
     {
         return $this->name;
     }
