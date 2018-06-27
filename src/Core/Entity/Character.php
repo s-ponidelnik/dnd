@@ -10,7 +10,7 @@ namespace App\Core\Entity;
 
 use App\Core\Entity\Core\Aligment;
 use App\Core\Entity\Core\CharacterName;
-use App\Core\Entity\Core\LanguageProfiencyCollection;
+use App\Core\Entity\Core\GameRuleMechanic;
 use App\Entity\Color;
 
 /**
@@ -84,8 +84,8 @@ class Character
     /** @var Aligment */
     protected $aligment;
 
-    /** @var LanguageProfiencyCollection */
-    protected $languages;
+    /** @var CharacterMemory */
+    protected $memory;
 
     public function getAligment(): Aligment
     {
@@ -182,4 +182,8 @@ class Character
         return $this->equipment;
     }
 
+    public function getAc(): int
+    {
+        return $this->ac;
+    }
 }

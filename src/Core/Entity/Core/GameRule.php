@@ -13,74 +13,49 @@ namespace App\Core\Entity\Core;
  */
 class GameRule
 {
-    /**
-     * @var int
-     */
+    /** @var int */
     protected $id;
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $name;
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $version;
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $description;
+    /** @var string */
+    protected $section;
+    /** @var GameRuleMechanic */
+    protected $mechanic;
 
-    /**
-     * @return int
-     */
     public function getId(): int
     {
         return $this->id;
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @param string $name
-     */
     public function setName(string $name): void
     {
         $this->name = $name;
     }
 
-    /**
-     * @return null|string
-     */
     public function getVersion(): ?string
     {
         return $this->version;
     }
 
-    /**
-     * @param string $version
-     */
     public function setVersion(string $version): void
     {
         $this->version = $version;
     }
 
-    /**
-     * @return null|string
-     */
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    /**
-     * @param string $description
-     */
     public function setDescription(string $description): void
     {
         $this->description = $description;

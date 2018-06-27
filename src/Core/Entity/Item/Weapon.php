@@ -17,11 +17,11 @@ use App\Core\Entity\Dice\Dice;
  */
 class Weapon extends Inventory implements LeftHandItemInterface, RightHandInterface
 {
-    /**
-     *
-     */
+
     const TYPE = 'WEAPON';
 
+    /** @var WeaponType */
+    protected $weaponType;
     /**
      * @var Dice
      */
