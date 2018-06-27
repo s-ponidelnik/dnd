@@ -8,6 +8,7 @@
 
 namespace App\Core\Entity\Spell;
 
+use App\Core\Entity\Core\Description;
 use App\Core\Entity\Core\Source;
 
 /**
@@ -29,7 +30,7 @@ class Spell
      */
     protected $level;
     /**
-     * @var string
+     * @var Description
      */
     protected $description;
     /**

@@ -9,12 +9,14 @@
 namespace App\Core\Entity\World;
 
 
+use App\Core\Entity\Core\Description;
+
 class Region extends LocationArea
 {
     /** @var string */
     protected $name;
-    /** @var string */
+    /** @var Description */
     protected $description;
-    /** @var LocationArea */
-    protected $locationArea;
+    /** @var GeoObjectCollection */
+    protected $geoObjects;
 }

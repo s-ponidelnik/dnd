@@ -22,7 +22,7 @@ class Source
      */
     protected $name;
     /**
-     * @var string|null
+     * @var Description|null
      */
     protected $description;
     /**
@@ -64,17 +64,17 @@ class Source
     }
 
     /**
-     * @return null|string
+     * @return null|Description
      */
-    public function getDescription(): ?string
+    public function getDescription(): ?Description
     {
         return $this->description;
     }
 
     /**
-     * @param string $description
+     * @param Description $description
      */
-    public function setDescription(string $description): void
+    public function setDescription(Description $description): void
     {
         $this->description = $description;
     }

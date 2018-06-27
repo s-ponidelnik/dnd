@@ -7,6 +7,8 @@
  */
 
 namespace App\Core\Entity;
+use App\Core\Entity\Core\Description;
+
 /**
  * Class Ability
  * @package App\Core\Entity
@@ -26,7 +28,7 @@ class Ability
      */
     protected $shortName;
     /**
-     * @var
+     * @var Description
      */
     protected $description;
 

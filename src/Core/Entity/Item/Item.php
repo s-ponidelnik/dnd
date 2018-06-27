@@ -7,6 +7,8 @@
  */
 
 namespace App\Core\Entity\Item;
+use App\Core\Entity\Core\Description;
+
 /**
  * Class Item
  * @package App\Core\Entity\Item
@@ -70,15 +72,15 @@ class Item implements ItemInterface
     /**
      * @return null|string
      */
-    public function getDescription(): ?string
+    public function getDescription(): ?Description
     {
         return $this->description;
     }
 
     /**
-     * @param string $description
+     * @param Description $description
      */
-    public function setDescription(string $description): void
+    public function setDescription(Description $description): void
     {
         $this->description = $description;
     }

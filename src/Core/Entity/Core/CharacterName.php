@@ -24,7 +24,7 @@ class CharacterName
     protected $shortName;
     /** @var CharacterGender|null */
     protected $gender;
-    /** @var string */
+    /** @var Description */
     protected $description;
     /** @var RaceCollection */
     protected $races;

@@ -19,7 +19,7 @@ class GameRule
     protected $name;
     /** @var string */
     protected $version;
-    /** @var string */
+    /** @var Description */
     protected $description;
     /** @var string */
     protected $section;
@@ -51,12 +51,12 @@ class GameRule
         $this->version = $version;
     }
 
-    public function getDescription(): ?string
+    public function getDescription(): ?Description
     {
         return $this->description;
     }
 
-    public function setDescription(string $description): void
+    public function setDescription(Description $description): void
     {
         $this->description = $description;
     }

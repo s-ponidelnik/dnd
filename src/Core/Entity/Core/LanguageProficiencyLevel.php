@@ -11,8 +11,6 @@ namespace App\Core\Entity\Core;
 
 class LanguageProficiencyLevel
 {
-    /** @var string */
-    protected $shortDescription;
-    /** @var string */
+    /** @var Description */
     protected $description;
 }

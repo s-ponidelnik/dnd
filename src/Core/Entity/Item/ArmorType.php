@@ -9,13 +9,15 @@
 namespace App\Core\Entity\Item;
 
 
+use App\Core\Entity\Core\Description;
+
 class ArmorType
 {
     /** @var int */
     protected $id;
     /** @var string */
     protected $name;
-    /** @var string */
+    /** @var Description */
     protected $description;
 
     /** @var ArmorPropertyCollection */
@@ -31,7 +33,7 @@ class ArmorType
         return $this->name;
     }
 
-    public function getDescription(): ?string
+    public function getDescription(): ?Description
     {
         return $this->description;
     }
@@ -46,7 +48,7 @@ class ArmorType
         $this->name = $name;
     }
 
-    public function setDescription(string $description): void
+    public function setDescription(Description $description): void
     {
         $this->description = $description;
     }

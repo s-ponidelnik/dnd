@@ -10,6 +10,8 @@ namespace App\Core\Entity;
 
 use App\Core\Entity\Core\Aligment;
 use App\Core\Entity\Core\CharacterName;
+use App\Core\Entity\Core\PortraitCollection;
+use App\Core\Entity\World\Location;
 use App\Entity\Color;
 
 /**
@@ -18,6 +20,8 @@ use App\Entity\Color;
  */
 class Character
 {
+    /** @var Location */
+    protected $location;
     /** @var ProficiencyBonus */
     protected $proficiencyBonus;
 
@@ -85,6 +89,9 @@ class Character
 
     /** @var CharacterMemory */
     protected $memory;
+
+    /** @var PortraitCollection */
+    protected $portraits;
 
     public function getAligment(): Aligment
     {

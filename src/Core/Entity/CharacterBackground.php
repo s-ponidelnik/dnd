@@ -9,11 +9,12 @@
 namespace App\Core\Entity;
 
 
+use App\Core\Entity\Core\Description;
 use App\Core\Entity\Core\LanguageProfiencyCollection;
 
 class CharacterBackground
 {
-    /** @var string */
+    /** @var Description*/
     protected $description;
     /** @var SkillBonusCollection */
     protected $skills;

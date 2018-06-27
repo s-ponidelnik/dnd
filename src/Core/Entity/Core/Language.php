@@ -15,10 +15,16 @@ class Language
 {
     /** @var string */
     protected $name;
+
     /** @var RaceCollection */
     protected $races;
-    /** @var string */
+
+    /** @var Description */
     protected $description;
+
     /** @var Language */
     protected $parentLanguage;
+
+    /** @var Alphabet|null */
+    protected $alphabet;
 }

@@ -7,6 +7,8 @@
  */
 
 namespace App\Core\Entity;
+use App\Core\Entity\Core\Description;
+
 /**
  * Class Skill
  * @package App\Core\Entity
@@ -27,7 +29,7 @@ class Skill
      */
     protected $name;
     /**
-     * @var string
+     * @var Description
      */
     protected $description;
 

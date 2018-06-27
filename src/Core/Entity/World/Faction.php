@@ -11,17 +11,24 @@ namespace App\Core\Entity\World;
 
 use App\Core\Entity\CharacterCollection;
 use App\Core\Entity\Core\Aligment;
+use App\Core\Entity\Core\Description;
 
 class Faction
 {
+    const TYPE = 'FACTION';
+
     /** @var string */
     protected $name;
-    /** @var string */
+
+    /** @var Description */
     protected $description;
+
     /** @var  $sing Faction Symbol */
     protected $sing;
+
     /** @var Aligment */
     protected $aligment;
+
     /** @var CharacterCollection */
     protected $members;
 }
