@@ -12,15 +12,15 @@ final class StringValue
 {
     protected $value;
 
-    public static function create(string $value): self
-    {
-        return new self($value);
-    }
-
     public function __construct(string $value = null)
     {
         $this->value = $value;
         return $this;
+    }
+
+    public static function create(string $value): self
+    {
+        return new self($value);
     }
 
     public function __toString()

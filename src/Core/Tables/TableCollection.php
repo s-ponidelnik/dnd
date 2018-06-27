@@ -33,7 +33,8 @@ class TableCollection extends ObjectCollection
         }
         return $results;
     }
-    public function getAll():array
+
+    public function getAll(): array
     {
         return $this->toArray();
     }

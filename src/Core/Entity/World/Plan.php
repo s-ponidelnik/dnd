@@ -16,4 +16,13 @@ class Plan extends World
 
     /** @var GeoObjectCollection */
     private $geoObjects;
+
+    public function getRegions(): ?RegionCollection
+    {
+        return $this->regions;
+    }
+    public function getGeoObjects(): ?GeoObjectCollection
+    {
+        return $this->geoObjects;
+    }
 }

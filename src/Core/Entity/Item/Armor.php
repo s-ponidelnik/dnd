@@ -30,11 +30,6 @@ class Armor extends Inventory implements ArmorInterface
         $this->armorType = $armorType;
     }
 
-    public function setProperties(ArmorPropertyCollection $properties): void
-    {
-        $this->properties = $properties;
-    }
-
     public function getProperties()
     {
         if (!$this->_properties) {
@@ -50,6 +45,11 @@ class Armor extends Inventory implements ArmorInterface
 
         }
         return $this->_properties;
+    }
+
+    public function setProperties(ArmorPropertyCollection $properties): void
+    {
+        $this->properties = $properties;
     }
 
 }

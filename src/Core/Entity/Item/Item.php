@@ -7,6 +7,7 @@
  */
 
 namespace App\Core\Entity\Item;
+
 use App\Core\Entity\Core\Description;
 
 /**
@@ -25,7 +26,7 @@ class Item implements ItemInterface
      */
     protected $name;
     /**
-     * @var string|null
+     * @var Description|null
      */
     protected $description;
     /**
@@ -69,9 +70,6 @@ class Item implements ItemInterface
         $this->name = $name;
     }
 
-    /**
-     * @return null|string
-     */
     public function getDescription(): ?Description
     {
         return $this->description;

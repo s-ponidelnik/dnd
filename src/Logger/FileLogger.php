@@ -8,7 +8,7 @@
 
 namespace App\Logger;
 
-use Psr\Log\LoggerInterface;
+
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /** @noinspection PhpUndefinedClassInspection */

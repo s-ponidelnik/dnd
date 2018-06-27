@@ -70,9 +70,12 @@ class Race
 
     /** @var LanguageCollection */
     protected $languages;
-    public function getLanguages():LanguageCollection{
+
+    public function getLanguages(): LanguageCollection
+    {
         return $this->languages;
     }
+
     public function getAligments(): AligmentCollection
     {
         return $this->aligments;

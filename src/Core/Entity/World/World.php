@@ -13,14 +13,12 @@ use App\Core\Entity\Religion\ReligionCollection;
 
 class World
 {
-    /** @var RegionCollection */
-    private $regions;
-
-    /** @var GeoObjectCollection */
-    private $geoObjects;
-
     /** @var ReligionCollection */
     protected $religions;
+    /** @var RegionCollection */
+    private $regions;
+    /** @var GeoObjectCollection */
+    private $geoObjects;
 
     public function getGeoObjects(): ?GeoObjectCollection
     {

@@ -33,23 +33,23 @@ class ArmorType
         return $this->name;
     }
 
-    public function getDescription(): ?Description
-    {
-        return $this->description;
-    }
-
-    public function getProperties(): ?ArmorPropertyCollection
-    {
-        return $this->properties;
-    }
-
     public function setName(string $name): void
     {
         $this->name = $name;
     }
 
+    public function getDescription(): ?Description
+    {
+        return $this->description;
+    }
+
     public function setDescription(Description $description): void
     {
         $this->description = $description;
+    }
+
+    public function getProperties(): ?ArmorPropertyCollection
+    {
+        return $this->properties;
     }
 }

@@ -14,7 +14,7 @@ use App\Core\Entity\Core\Description;
 abstract class GeoObject
 {
     const TYPE = 'OBJECT';
-    
+
     /** @var Location */
     protected $location;
 

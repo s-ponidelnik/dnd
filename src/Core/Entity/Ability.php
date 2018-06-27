@@ -7,6 +7,7 @@
  */
 
 namespace App\Core\Entity;
+
 use App\Core\Entity\Core\Description;
 
 /**

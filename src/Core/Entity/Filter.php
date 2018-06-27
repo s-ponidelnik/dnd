@@ -13,18 +13,14 @@ use App\Entity\CollectionInterface;
 
 abstract class Filter implements FilterInterface
 {
+    protected const IN_COLLECTION = 1;
+    protected const VALUE_COLLECTION = 2;
+    private const DEFAULT_FILTER_TYPE = self::IN_COLLECTION;
+    protected static $FILTER_TYPE;
     /**
      * @var CollectionInterface
      */
     protected $collection;
-
-
-    protected const IN_COLLECTION = 1;
-    protected const VALUE_COLLECTION = 2;
-
-    private const DEFAULT_FILTER_TYPE = self::IN_COLLECTION;
-
-    protected static $FILTER_TYPE;
 
     /**
      * @return int
@@ -33,6 +29,7 @@ abstract class Filter implements FilterInterface
     {
         return (static::$FILTER_TYPE ? static::$FILTER_TYPE : self::DEFAULT_FILTER_TYPE);
     }
+
     /**
      * @return CollectionInterface
      */
@@ -40,6 +37,7 @@ abstract class Filter implements FilterInterface
     {
         return $this->collection;
     }
+
     /**
      * @param CollectionInterface $collection
      */

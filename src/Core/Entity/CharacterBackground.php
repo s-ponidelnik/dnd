@@ -14,7 +14,7 @@ use App\Core\Entity\Core\LanguageProfiencyCollection;
 
 class CharacterBackground
 {
-    /** @var Description*/
+    /** @var Description */
     protected $description;
     /** @var SkillBonusCollection */
     protected $skills;
