@@ -32,7 +32,7 @@ class CharacterName
     protected $regions;
     /** @var GeoObject */
     protected $geoObjects;
-    /** @var AligmentCollection */
-    protected $aligments;
+    /** @var AlignmentCollection */
+    protected $Alignments;
 
 }

@@ -11,10 +11,10 @@ namespace App\Core\Entity;
 use App\Entity\CollectionInterface;
 
 /**
- * Class AligmentFilter
+ * Class AlignmentFilter
  * @package App\Core\Entity
  */
-class AligmentFilter extends FilterInCollection
+class AlignmentFilter extends FilterInCollection
 {
     /**
      * @var CollectionInterface

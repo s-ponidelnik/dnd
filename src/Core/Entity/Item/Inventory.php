@@ -9,7 +9,7 @@
 namespace App\Core\Entity\Item;
 
 use App\Core\Entity\AbilityFilter;
-use App\Core\Entity\AligmentFilter;
+use App\Core\Entity\AlignmentFilter;
 use App\Core\Entity\ClassFilter;
 use App\Core\Entity\RaceFilter;
 
@@ -29,9 +29,9 @@ class Inventory extends Item implements InventoryInterface
      */
     protected $raceFilter;
     /**
-     * @var AligmentFilter
+     * @var AlignmentFilter
      */
-    protected $aligmentFilter;
+    protected $AlignmentFilter;
     /**
      * @var AbilityFilter
      */
@@ -44,17 +44,17 @@ class Inventory extends Item implements InventoryInterface
 
     public function setAbilityFilter(AbilityFilter $abilityFilter): void
     {
-        $this->aligmentFilter = $abilityFilter;
+        $this->AlignmentFilter = $abilityFilter;
     }
 
-    public function getAligmentFilter(): ?AligmentFilter
+    public function getAlignmentFilter(): ?AlignmentFilter
     {
-        return $this->aligmentFilter;
+        return $this->AlignmentFilter;
     }
 
-    public function setAligmentFilter(AligmentFilter $aligmentFilter): void
+    public function setAlignmentFilter(AlignmentFilter $AlignmentFilter): void
     {
-        $this->aligmentFilter = $aligmentFilter;
+        $this->AlignmentFilter = $AlignmentFilter;
     }
 
     public function getRaceFilter(): ?RaceFilter

@@ -9,7 +9,7 @@
 namespace App\Core\Entity;
 
 
-use App\Core\Entity\Core\AligmentCollection;
+use App\Core\Entity\Core\AlignmentCollection;
 use App\Core\Entity\Core\LanguageCollection;
 use App\Core\Entity\Core\Source;
 use App\Entity\ColorCollection;
@@ -57,9 +57,9 @@ class Race
      */
     protected $hairColors;
     /**
-     * @var AligmentCollection
+     * @var AlignmentCollection
      */
-    protected $aligments;
+    protected $Alignments;
     /**
      * @var AbilityScoreBonusCollection
      */
@@ -71,19 +71,22 @@ class Race
     /** @var LanguageCollection */
     protected $languages;
 
+    /** @var int */
+    protected $size;
+
     public function getLanguages(): LanguageCollection
     {
         return $this->languages;
     }
 
-    public function getAligments(): AligmentCollection
+    public function getAlignments(): AlignmentCollection
     {
-        return $this->aligments;
+        return $this->Alignments;
     }
 
-    public function setAligments(AligmentCollection $aligmentCollection): void
+    public function setAlignments(AlignmentCollection $AlignmentCollection): void
     {
-        $this->aligments = $aligmentCollection;
+        $this->Alignments = $AlignmentCollection;
     }
 
     public function getMaxAge(): ?int

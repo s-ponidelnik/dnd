@@ -9,7 +9,7 @@
 namespace App\Core\Entity\Core;
 
 
-class Aligment
+class Alignment
 {
     protected $lawful;
     protected $chaotic;

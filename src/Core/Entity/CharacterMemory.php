@@ -16,6 +16,7 @@ class CharacterMemory
 {
     /** @var LanguageProfiencyCollection */
     protected $languages;
+
     /** @var SpellCollection */
     protected $spells;
 }

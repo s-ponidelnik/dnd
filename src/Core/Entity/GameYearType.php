@@ -13,6 +13,7 @@ class GameYearType
 {
     /** @var string */
     protected $typeOfDate;
+
     /** @var string */
     protected $year;
 }

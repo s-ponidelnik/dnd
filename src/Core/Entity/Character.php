@@ -8,7 +8,7 @@
 
 namespace App\Core\Entity;
 
-use App\Core\Entity\Core\Aligment;
+use App\Core\Entity\Core\Alignment;
 use App\Core\Entity\Core\CharacterName;
 use App\Core\Entity\Core\PortraitCollection;
 use App\Core\Entity\World\Location;
@@ -22,6 +22,7 @@ class Character
 {
     /** @var Location */
     protected $location;
+
     /** @var ProficiencyBonus */
     protected $proficiencyBonus;
 
@@ -53,7 +54,7 @@ class Character
     protected $abilities;
 
     /** @var CharacterSkillCollection */
-    protected $skils;
+    protected $skills;
 
     /** @var CharacterSavingThrowCollection */
     protected $savingThrows;
@@ -72,6 +73,7 @@ class Character
 
     /** @var float */
     protected $weight;
+
     /** @var float */
     protected $height;
 
@@ -84,8 +86,8 @@ class Character
     /** @var int|null */
     protected $temporaryHp;
 
-    /** @var Aligment */
-    protected $aligment;
+    /** @var Alignment */
+    protected $Alignment;
 
     /** @var CharacterMemory */
     protected $memory;
@@ -93,14 +95,14 @@ class Character
     /** @var PortraitCollection */
     protected $portraits;
 
-    public function getAligment(): Aligment
+    public function getAlignment(): Alignment
     {
-        return $this->aligment;
+        return $this->Alignment;
     }
 
-    public function setAligment(Aligment $aligment): void
+    public function setAlignment(Alignment $Alignment): void
     {
-        $this->aligment = $aligment;
+        $this->Alignment = $Alignment;
     }
 
     public function setTmpHp(int $temporaryHp): void

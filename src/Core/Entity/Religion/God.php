@@ -9,8 +9,8 @@
 namespace App\Core\Entity\Religion;
 
 
-use App\Core\Entity\Core\Aligment;
-use App\Core\Entity\Core\AligmentCollection;
+use App\Core\Entity\Core\Alignment;
+use App\Core\Entity\Core\AlignmentCollection;
 use App\Core\Entity\Core\PortraitCollection;
 use App\Core\Entity\Core\SignCollection;
 use App\Core\Entity\Item\Weapon;
@@ -21,11 +21,11 @@ class God
     /** @var GodNameCollection */
     protected $names;
 
-    /** @var Aligment */
-    protected $aligment;
+    /** @var Alignment */
+    protected $Alignment;
 
-    /** @var AligmentCollection */
-    protected $acolyteAligments;
+    /** @var AlignmentCollection */
+    protected $acolyteAlignments;
 
     /** @var Weapon */
     protected $favoriteWeapon;

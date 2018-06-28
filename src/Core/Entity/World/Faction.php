@@ -10,7 +10,7 @@ namespace App\Core\Entity\World;
 
 
 use App\Core\Entity\CharacterCollection;
-use App\Core\Entity\Core\Aligment;
+use App\Core\Entity\Core\Alignment;
 use App\Core\Entity\Core\Description;
 
 class Faction
@@ -26,8 +26,8 @@ class Faction
     /** @var  $sing Faction Symbol */
     protected $sing;
 
-    /** @var Aligment */
-    protected $aligment;
+    /** @var Alignment */
+    protected $Alignment;
 
     /** @var CharacterCollection */
     protected $members;

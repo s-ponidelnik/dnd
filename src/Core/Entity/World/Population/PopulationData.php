@@ -9,7 +9,7 @@
 namespace App\Core\Entity\World\Population;
 
 
-use App\Core\Entity\Core\Aligment;
+use App\Core\Entity\Core\Alignment;
 use App\Core\Entity\Core\CharacterGender;
 use App\Core\Entity\Race;
 
@@ -19,8 +19,8 @@ class PopulationData
     protected $race;
     /** @var int */
     protected $age;
-    /** @var Aligment */
-    protected $aligment;
+    /** @var Alignment */
+    protected $Alignment;
     /** @var CharacterGender */
     protected $gender;
     /** @var int */
