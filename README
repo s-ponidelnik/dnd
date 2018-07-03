@@ -1,3 +1,104 @@
+========================= Environment for project deploy =========================
+
+1) BIOS turn on virtualization
+It may be Intel®Virtualization Technology, Virtualization Extensions, AMD-V, VT-d option
+
+2) Turn off Hyper-V
+Open: Control Panel -> Program and features -> Turn windows features on or off
+
+3) To run this project from Vagrant you need to install:
+  a) Virtual box
+  b) Vagrant
+  c) Vagrant plugins:
+    c.1) vagrant plugin install vagrant-vbguest | extensions for VirtualBox
+    c.2) vagrant plugin install vagrant-hostmanager
+    c.3) vagrant plugin install vagrant-winnfsd | for speed up the project with nfs
+  d) SSH client (Putty, etc.)
+
+4) To install this project into vagrant driven virtual box image you have to run vagrant from this dir:
+  a) open your shell and change directory to this working copy
+  b) vagrant up
+  c) press enter and go drink some coffee. :) (Approximately for 30 minutes, but it depends on internet speed)
+In case:
+  a) "SSH connection timeout" look on first paragraph of this guide
+  b) "Command: ["showvminfo", "\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"]"
+  remove .vagrant folder in this directory
+
+5) Set up putty:
+  a) Session -> IP: 192.168.56.101
+  b) Connection->SSH->Auth -> projectPath\puphpet\files\dot\ssh\id_rsa.ppk
+  c) Connection->Proxy -> Username: vagrant
+
+========================= Speed up project =========================
+After initial installation into virtual machine you can switch from default folders syncing to nfs.
+If you want to switch to nfs you have to:
+  1. Inside the working copy locate the file puphpet/config.yaml
+  2. Change the value 'default' to 'nfs' in node
+    vagrantfile:2
+      vm:
+        synced_folder:
+          *:
+            sync_type: default
+  4. vagrant halt
+  5. vagrant up
+  6. Hope for the best. :)
+
+========================= XDebug =========================
+
+Attention for Xdebug: it doesn't work inside docker container with NFS.
+Fix for dev: store sessions in different path (not NFS-synchronized).
+For instance: /tmp
+So, modify app/config/config.yml:
+    framework:
+        session:
+            save_path: "/tmp/var/sessions/"
+
+========================= PHPUnit from PHPStorm =========================
+
+1. Set up PHP interpreter
+  a) Change owner for folder: sudo chown -R vagrant:vagrant ~/.phpstorm_helpers/
+  b) Add remote interpreter: /vagrant/bin/docker_php
+  c) Set up mapping to project root dir in virtual box and root dir in windows
+
+2. Set up remote interpreter:
+  a) Go to Settings -> Language&Frameworks->PhpUnit
+  b) Use composer auto loader  = ./vendor/autoload.php
+  c) Default configuration file = ./app/phpunit.xml.dist
+
+3. Reload:
+> docker-compose -f /vagrant/docker-compose.yml stop
+> docker-compose -f /vagrant/docker-compose.yml up -d
+
+========================= GIT =========================
+
+1. Install Git, add author
+    $ git config --global user.name "John Doe"
+    $ git config --global user.email johndoe@example.com
+2. Create gir repo by PhpStorm or manually
+3. Make first commit
+
+4. Create at remote server repo:
+    mkdir <repo>.git
+    cd <repo>.git
+    git init --bare --shared
+
+5. Local: git remote add origin ssh://<GIT_USER>@<SERVER><PATH><repo>.git
+6. Push to the origin\master
+
+For clone:
+git clone -b <branch> <repo_url> .
+
+========================= Docker =========================
+
+Useful commands:
+
+/usr/local/bin/docker-compose -f "/vagrant/docker-compose.yml" rm --force
+/usr/local/bin/docker-compose -f "/vagrant/docker-compose.yml" build
+/usr/local/bin/docker-compose -f "/vagrant/docker-compose.yml" up -d
+
+docker ps
+docker logs <container>
+docker exec -it <container> bash
 
 ## Logger
 
@@ -5,7 +106,7 @@ ELK development guide: https://elk-docker.readthedocs.io/
 Filebeat: https://www.elastic.co/products/beats/filebeat
 
 Elasticsearch entries:
-http://dnd.localhost:9200/_search?pretty
+http://content-connector.localhost:9200/_search?pretty
 
 Kibana's web interface:
-http://dnd.localhost:5601
+http://content-connector.localhost:5601
