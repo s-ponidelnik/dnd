@@ -30,7 +30,8 @@ class Source
      */
     protected $name;
     /**
-     * @ORM\Column(type="string")
+     * @ORM\OneToOne(targetEntity="App\Core\Entity\Core\Description")
+     * @ORM\JoinColumn(nullable=true)
      * @var Description|null
      */
     protected $description;

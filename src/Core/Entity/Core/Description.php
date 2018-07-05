@@ -8,11 +8,21 @@
 
 namespace App\Core\Entity\Core;
 
-
+/**
+ * Class Description
+ * @package App\Core\Entity
+ * @ORM\Entity(repositoryClass="App\Core\Entity\Core\Repository\DescriptionRepository")
+ */
 class Description
 {
+    /**
+     * @ORM\Column(type="string")
+     * @var string|null
+     */
+    protected $serrialazedData;
+    /** @var array */
     protected $data;
-
+    /** @var array */
     protected $tags;
 
     protected function getAll()

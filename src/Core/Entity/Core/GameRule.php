@@ -10,20 +10,45 @@ namespace App\Core\Entity\Core;
 /**
  * Class GameRule
  * @package App\Core\Entity
+ * @ORM\Entity(repositoryClass="App\Core\Entity\Core\Repository\GameRuleRepository")
  */
 class GameRule
 {
-    /** @var int */
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     * @var int
+     */
     protected $id;
-    /** @var string */
+    /**
+     * @ORM\Column(type="string",length=255)
+     * @var string|null
+     */
     protected $name;
-    /** @var string */
+    /**
+     * @ORM\Column(type="string",length=55)
+     * @var string|null
+     */
     protected $version;
-    /** @var Description */
+    /**
+     * @ORM\OneToOne(targetEntity="App\Core\Entity\Core\Description")
+     * @ORM\JoinColumn(nullable=true)
+     * @var Description
+     */
     protected $description;
-    /** @var string */
+
+    /**
+     * @ORM\Column(type="string",length=255)
+     * @var string|null
+     */
     protected $section;
-    /** @var GameRuleMechanic */
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Core\Entity\Core\GameRuleMechanic")
+     * @ORM\JoinColumn(nullable=true)
+     * @var GameRuleMechanic
+     */
     protected $mechanic;
     /**
      * @ORM\ManyToOne(targetEntity="App\Core\Entity\Core\Source", inversedBy="gameRules")

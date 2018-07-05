@@ -9,16 +9,28 @@
 namespace App\Core\Entity\Core;
 
 
+/**
+ * Class GameRuleMechanic
+ * @package App\Core\Entity\Core
+ * @ORM\Entity(repositoryClass="App\Core\Entity\Core\Repository\GameRuleMechanicRepository")
+ */
 class GameRuleMechanic
 {
-    /** @var string */
+    /**
+     * @ORM\Column(type="string",length=255)
+     * @var string|null
+     */
     protected $onClass = '\App\Core\Entity\Character';
 
-    /** @var string */
+    /**
+     * @ORM\Column(type="string",length=255)
+     * @var string|null
+     */
     protected $onMethod = 'getAc';
-
-    public function mechanic()
-    {
-
-    }
+    /**
+     * @var GameRule
+     * @ORM\OneToOne(targetEntity="App\Core\Entity\Core\GameRule")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    protected $gameRule;
 }
