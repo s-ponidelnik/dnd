@@ -25,6 +25,12 @@ class GameRule
     protected $section;
     /** @var GameRuleMechanic */
     protected $mechanic;
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Core\Entity\Core\Source", inversedBy="gameRules")
+     * @ORM\JoinColumn(nullable=true)
+     * @var Source
+     */
+    protected $source;
 
     public function getId(): int
     {

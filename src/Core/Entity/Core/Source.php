@@ -7,37 +7,54 @@
  */
 
 namespace App\Core\Entity\Core;
+
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * Class Source
  * @package App\Core\Entity
+ * @ORM\Entity(repositoryClass="App\Core\Entity\Core\Repository\SourceRepository")
  */
 class Source
 {
     /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
      * @var int
      */
     protected $id;
     /**
+     * @ORM\Column(type="string",length=255)
      * @var string|null
      */
     protected $name;
     /**
+     * @ORM\Column(type="string")
      * @var Description|null
      */
     protected $description;
     /**
+     * @ORM\Column(type="bool")
      * @var bool
      */
     protected $offical;
     /**
+     * @ORM\Column(type="string")
      * @var string|null
      */
     protected $url;
 
     /**
-     * @var GameRule
+     * @ORM\OneToMany(targetEntity="App\Core\Entity\Core\GameRule", mappedBy="source")
+     * @var GameRule[]
      */
-    protected $gameRule;
+    protected $gameRules;
+
+    protected function __construct()
+    {
+        $this->gameRules = new ArrayCollection();
+    }
 
     /**
      * @return int
@@ -112,18 +129,18 @@ class Source
     }
 
     /**
-     * @return GameRule
+     * @return ArrayCollection
      */
-    public function getGameRule(): GameRule
+    public function getGameRules(): ArrayCollection
     {
-        return $this->gameRule;
+        return $this->gameRules;
     }
 
     /**
-     * @param GameRule $gameRule
+     * @param ArrayCollection $gameRules
      */
-    public function setGameRule(GameRule $gameRule): void
+    public function setGameRule(ArrayCollection $gameRules): void
     {
-        $this->gameRule = $gameRule;
+        $this->gameRules = $gameRules;
     }
 }
