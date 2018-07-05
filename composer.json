@@ -25,11 +25,13 @@
     "symfony/translation": "^4.0",
     "symfony/yaml": "^4.0",
     "guzzlehttp/guzzle": "^6.3",
-    "composer require mpdf/mpdf": "^7.1"
+    "composer require mpdf/mpdf": "^7.1",
+    "symfony/orm-pack": "^1.0.5"
   },
   "require-dev": {
     "symfony/dotenv": "^4.0",
-    "symfony/phpunit-bridge": "^4.0"
+    "symfony/phpunit-bridge": "^4.0",
+    "symfony/maker-bundle": "^1.5.0"
   },
   "config": {
     "preferred-install": {

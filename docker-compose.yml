@@ -15,9 +15,6 @@ services:
             - "3306:3306"
         environment:
           MYSQL_ROOT_PASSWORD: test
-          MYSQL_DATABASE: test
-          MYSQL_USER: test
-          MYSQL_PASSWORD: test
     nginx:
         container_name: cc_nginx
         image: nginx
@@ -49,6 +46,8 @@ services:
             - /home/vagrant/.phpstorm_helpers/:/home/vagrant/.phpstorm_helpers/
         env_file:
             - /var/www/dnd.localhost/.env
+        links:
+            - mysql
 
     elk:
         container_name: cc_elk
