@@ -162,3 +162,5 @@ if [[ -z ${1} ]]; then
 else
   exec "$@"
 fi
+mysql -uroot -ptest -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION; FLUSH PRIVILEGES;"
+mysql -uroot -ptest -e "CREATE DATABASE test";
