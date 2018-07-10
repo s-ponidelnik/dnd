@@ -6,7 +6,7 @@ charset_map  koi8-r  windows-1251 {
     95  95 ; # bullet
 
     9A  A0 ; # &nbsp;
-
+d
     9E  B7 ; # &middot;
 
     A3  B8 ; # small yo

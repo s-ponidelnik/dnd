@@ -10,7 +10,14 @@ vagrantfile:
         box_version: ''
         network:
             private_network: 192.168.56.102
-            forwarded_port: {  }
+            forwarded_port:
+              cc_mysql:
+                guest : 3306
+                host : 3306
+              cc_nginx:
+                guest: 80
+                host: 8080
+                auto_correct: true
         post_up_message: ''
         provider:
             virtualbox:

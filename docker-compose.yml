@@ -17,9 +17,10 @@ services:
           MYSQL_ROOT_PASSWORD: test
     nginx:
         container_name: cc_nginx
-        image: nginx
+        image: nginx:latest
         #restart: always
         ports:
+            - "8080:80"
             - "80:80"
             - "443:443"
         volumes:
