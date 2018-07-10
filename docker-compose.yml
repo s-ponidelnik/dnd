@@ -1,14 +1,15 @@
 version: '2'
 services:
     application:
-        container_name: cc_application
+        container_name: dnd_application
         build: docker/application/
         #restart: always
         volumes:
             - .:/var/www/dnd.localhost
         tty: true
     mysql:
-        container_name: cc_mysql
+        container_name: dnd_mysql
+#        build: docker/mysql
         image: mysql
         #restart always
         ports:
@@ -16,7 +17,7 @@ services:
         environment:
           MYSQL_ROOT_PASSWORD: test
     nginx:
-        container_name: cc_nginx
+        container_name: dnd_nginx
         image: nginx:latest
         #restart: always
         ports:
@@ -34,7 +35,7 @@ services:
             - php
 
     php:
-        container_name: cc_php
+        container_name: dnd_php
         build: docker/php-fpm/
         #restart: always
         ports:
@@ -50,28 +51,28 @@ services:
         links:
             - mysql
 
-    elk:
-        container_name: cc_elk
-        image: sebp/elk
-        #restart: always
-        ports:
-            # Kibana
-            - "5601:5601"
-            # Elasticsearch
-            - "9200:9200"
-            # Logstash
-            - "5044:5044"
-        volumes:
-            #- .:/var/www/dnd.localhost
-            - /var/lib/elasticsearch:/var/lib/elasticsearch
+#    elk:
+#        container_name: dnd_elk
+#        image: sebp/elk
+#        #restart: always
+#        ports:
+#            # Kibana
+#            - "5601:5601"
+#            # Elasticsearch
+#            - "9200:9200"
+#            # Logstash
+#            - "5044:5044"
+#        volumes:
+#            #- .:/var/www/dnd.localhost
+#            - /var/lib/elasticsearch:/var/lib/elasticsearch
 
-    filebeat:
-        container_name: cc_filebeat
-        build: docker/filebeat/
-        #image: docker.elastic.co/beats/filebeat:6.2.4
-        #restart: always
-        volumes:
-            - /var/log/nginx:/var/log/storage/nginx
-            - /var/www/dnd.localhost/var/log:/var/log/storage/php
-        links:
-            - elk
+#    filebeat:
+#        container_name: dnd_filebeat
+#        build: docker/filebeat/
+#        #image: docker.elastic.co/beats/filebeat:6.2.4
+#        #restart: always
+#        volumes:
+#            - /var/log/nginx:/var/log/storage/nginx
+#            - /var/www/dnd.localhost/var/log:/var/log/storage/php
+#        links:
+#            - elk

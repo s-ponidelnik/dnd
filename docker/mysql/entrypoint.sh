@@ -3,12 +3,12 @@ set -e
 
 [[ $DEBUG == true ]] && set -x
 
-DB_NAME=${DB_NAME:test}
-DB_USER=${DB_USER:test}
-DB_PASS=${DB_PASS:test}
+DB_NAME=${DB_NAME:dnd}
+DB_USER=${DB_USER:dnd}
+DB_PASS=${DB_PASS:dnd}
 
-DB_REMOTE_ROOT_NAME=${DB_REMOTE_ROOT_NAME:test}
-DB_REMOTE_ROOT_PASS=${DB_REMOTE_ROOT_PASS:test}
+DB_REMOTE_ROOT_NAME=${DB_REMOTE_ROOT_NAME:dnd}
+DB_REMOTE_ROOT_PASS=${DB_REMOTE_ROOT_PASS:dnd}
 DB_REMOTE_ROOT_HOST=${DB_REMOTE_ROOT_HOST:-"127.0.0.1"}
 
 MYSQL_CHARSET=${MYSQL_CHARSET:-"utf8"}
@@ -162,5 +162,5 @@ if [[ -z ${1} ]]; then
 else
   exec "$@"
 fi
-mysql -uroot -ptest -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION; FLUSH PRIVILEGES;"
-mysql -uroot -ptest -e "CREATE DATABASE test";
+mysql -udnd -ptdnd -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION; FLUSH PRIVILEGES;"
+mysql -udnd -pdnd -e "CREATE DATABASE dnd";
