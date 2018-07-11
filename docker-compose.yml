@@ -9,13 +9,21 @@ services:
         tty: true
     mysql:
         container_name: dnd_mysql
-#        build: docker/mysql
-        image: mysql
+        build: docker/mysql
+        #image: mysql
         #restart always
         ports:
             - "3306:3306"
         environment:
-          MYSQL_ROOT_PASSWORD: test
+                   MYSQL_ROOT_PASSWORD: dnd
+                   MYSQL_DATABASE: dnd
+                   MYSQL_DATABASE_CHARSET: utf8
+                   MYSQL_DATABASE_COLLATE: utf8_unicode_ci
+                   MYSQL_USER: dnd
+                   MYSQL_PASSWORD: dnd
+        volumes:
+                  - /var/lib/mysql:/var/lib/mysql
+                  - /var/log/mysql:/var/log/mysql
     nginx:
         container_name: dnd_nginx
         image: nginx:latest
