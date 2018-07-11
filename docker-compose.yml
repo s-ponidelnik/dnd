@@ -29,9 +29,7 @@ services:
         image: nginx:latest
         #restart: always
         ports:
-            - "8080:80"
             - "80:80"
-            - "443:443"
         volumes:
             - .:/var/www/dnd.localhost
             - /var/www/dnd.localhost/etc/nginx:/etc/nginx

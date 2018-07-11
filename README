@@ -106,7 +106,7 @@ ELK development guide: https://elk-docker.readthedocs.io/
 Filebeat: https://www.elastic.co/products/beats/filebeat
 
 Elasticsearch entries:
-http://content-connector.localhost:9200/_search?pretty
+http://dnd.localhost:9200/_search?pretty
 
 Kibana's web interface:
-http://content-connector.localhost:5601
+http://dnd.localhost:5601
